@@ -5,278 +5,214 @@ import {
   Target,
   CheckCircle,
   BookOpen,
-  Cpu,
+  Settings,
   Zap,
   ArrowRight
 } from '../components/Icons';
 
 const ObjectivesPage: React.FC = () => {
-  const primaryObjectives = [
+  const objectives = [
     {
-      title: "电气图识读技能",
-      description: "熟悉离散制造（如汽车装配线焊接工序）、过程控制（化工厂反应罐）、基础设施（智能楼宇）等生产流程",
+      title: '工业控制器认知能力',
+      description: '掌握工业控制器分类及适用场景，熟悉离散制造、过程控制等生产流程，具有通过查阅资料了解PLC、DCS、SCADA等不同工业控制器特点及适用场景的能力',
+      icon: <Settings className="w-6 h-6" />,
+      color: 'from-blue-400 to-cyan-600',
+      skills: ['PLC vs DCS vs SCADA对比', '离散制造与过程控制', '工业控制器选型'],
+      image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=300&h=200&fit=crop&auto=format'
+    },
+    {
+      title: 'PLC发展历程理解',
+      description: '掌握PLC发展历程相关知识，熟悉PLC从第一代到第三代的功能演变流程，具有利用教材等资料梳理PLC发展各阶段特点的能力',
       icon: <BookOpen className="w-6 h-6" />,
-      details: [
-        "识别电气元件符号与连接方式",
-        "理解汽车装配线电气图结构",
-        "掌握PLC I/O接口识读方法",
-        "学会传感器和执行器连接线路分析"
-      ]
+      color: 'from-green-400 to-blue-600',
+      skills: ['PLC三代发展历程', '各阶段功能特点', '技术演进理解'],
+      image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop&auto=format'
     },
     {
-      title: "梯形图编程操作能力",
-      description: "具有使用梯形图编程工具进行常开/常闭触点绘制、定时器/计数器设置、输出线圈连接等基础操作",
-      icon: <Cpu className="w-6 h-6" />,
-      details: [
-        "掌握梯形图五大基础指令",
-        "熟练绘制常开/常闭触点",
-        "设置TON定时器参数",
-        "配置计数器功能",
-        "实现输出线圈控制逻辑"
-      ]
-    },
-    {
-      title: "PLC硬件接线能力",
-      description: "使用PLC硬件进行I/O模块接线、急停电路安全接线的操作能力",
+      title: 'PLC硬件与接线技能',
+      description: '掌握PLC硬件组成及I/O接线规范，熟悉PLC最小系统由CPU、电源和I/O模块构成，具有使用工具进行两线制、三线制传感器I/O接线以及熔断器选型、继电器隔离操作的能力',
       icon: <Zap className="w-6 h-6" />,
-      details: [
-        "掌握两线制传感器接线方法",
-        "掌握三线制传感器接线规范",
-        "实现急停电路独立硬接线",
-        "熟悉熔断器选型与继电器隔离",
-        "遵循安全接线标准"
-      ]
-    }
-  ];
-
-  const theoreticalKnowledge = [
-    {
-      title: "PLC循环扫描工作原理",
-      points: [
-        "输入采样阶段：扫描读取所有输入端子状态",
-        "程序执行阶段：按顺序执行用户程序逻辑运算",
-        "输出刷新阶段：更新输出锁存器驱动外部负载",
-        "掌握扫描周期对实时性的影响"
-      ]
+      color: 'from-yellow-400 to-orange-600',
+      skills: ['PLC硬件最小系统', '两线制三线制接线', '熔断器选型规范', '继电器隔离设计'],
+      image: 'https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=300&h=200&fit=crop&auto=format'
     },
     {
-      title: "自动化产业层级划分",
-      points: [
-        "传感层：光电传感器、接近开关等信号采集",
-        "控制层：PLC作为系统大脑进行逻辑控制",
-        "执行层：电机、电磁阀等执行器实现动作",
-        "管理层：SCADA/MES系统监控与管理"
-      ]
+      title: '梯形图编程能力',
+      description: '掌握梯形图编程基础指令及编程范式，熟悉起保停电路、电气与机械互锁等编程范式，具有使用TIA Portal软件进行梯形图编写的能力',
+      icon: <Target className="w-6 h-6" />,
+      color: 'from-purple-400 to-pink-600',
+      skills: ['五大基础指令', '起保停电路', '电气机械互锁', 'TIA Portal编程'],
+      image: 'https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=300&h=200&fit=crop&auto=format'
     },
     {
-      title: "安全设计优先原则",
-      points: [
-        "急停电路必须独立于PLC程序控制",
-        "避免梯形图编程中的双线圈冲突",
-        "系统设计始终将安全放在首位",
-        "掌握故障安全和失效安全概念"
-      ]
-    }
-  ];
-
-  const practicalSkills = [
-    {
-      title: "DI/DO点数估算选型",
-      description: "根据应用需求准确估算PLC模块规格",
-      steps: [
-        "统计系统所需检测的输入信号数量",
-        "确定需要控制的输出信号数量",
-        "预留10%-20%余量应对功能扩展",
-        "选择合适的PLC硬件模块"
-      ]
-    },
-    {
-      title: "系统相关安全操作",
-      description: "遵循安全设计优先原则进行系统操作",
-      steps: [
-        "急停按钮独立硬接线设计",
-        "电路单独布线确保可靠性",
-        "紧急情况下快速切断电源",
-        "保障人员和设备安全"
-      ]
+      title: '电气安全与编程安全',
+      description: '掌握电气安全与编程安全相关知识，熟悉漏电保护电路设计、急停梯形图设计要求，具有运用相关知识设计急停梯形图并避免编程中双线圈冲突的能力',
+      icon: <CheckCircle className="w-6 h-6" />,
+      color: 'from-red-400 to-pink-600',
+      skills: ['漏电保护原理', '安全电压等级', '急停梯形图设计', '双线圈冲突避免'],
+      image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=300&h=200&fit=crop&auto=format'
     }
   ];
 
   return (
     <main className="relative z-10 px-6 pb-12">
-      {/* 页面标题 */}
-      <section className="mb-12">
-        <LiquidGlass
-          displacementScale={80}
-          blurAmount={0.1}
-          saturation={140}
-          elasticity={0.25}
-          cornerRadius={24}
-          className="text-center p-8"
-        >
-          <div className="flex items-center justify-center mb-4">
-            <Target className="w-8 h-8 text-blue-400 mr-3" />
-            <h1 className="text-3xl md:text-4xl font-bold text-white">课程学习目标</h1>
+      {/* Hero Section */}
+      <section className="mb-16 text-center">
+        <div className="relative backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 overflow-hidden">
+          {/* 背景图片 */}
+          <div 
+            className="absolute inset-0 opacity-10 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1200&h=600&fit=crop&auto=format)'
+            }}
+          ></div>
+          
+          <div className="relative z-10">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              课程学习目标
+            </h1>
+            <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
+              通过本课程学习，学生将全面掌握PLC控制技术的核心知识与技能，具备工业自动化项目开发的基础能力
+            </p>
+            
+            {/* 技能展示图片 */}
+            <div className="flex justify-center mb-6">
+              <div className="grid grid-cols-4 gap-2 max-w-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=120&h=80&fit=crop&auto=format"
+                  alt="工业认知"
+                  className="rounded opacity-70 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=120&h=80&fit=crop&auto=format"
+                  alt="技术发展"
+                  className="rounded opacity-70 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=120&h=80&fit=crop&auto=format"
+                  alt="实操技能"
+                  className="rounded opacity-70 hover:opacity-100 transition-opacity"
+                />
+                <img 
+                  src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=120&h=80&fit=crop&auto=format"
+                  alt="编程应用"
+                  className="rounded opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
           </div>
-          <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
-            通过本课程的学习，学生将全面掌握PLC控制器的基础知识和实践技能，
-            具备从事自动化相关工作的核心能力。
-          </p>
-        </LiquidGlass>
+        </div>
       </section>
 
-      {/* 主要学习目标 */}
+      {/* Course Objectives */}
       <section className="mb-16">
-        <LiquidGlass
-          displacementScale={60}
-          blurAmount={0.08}
-          saturation={130}
-          cornerRadius={20}
-          className="mb-8"
-        >
-          <div className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <CheckCircle className="w-6 h-6 mr-3 text-green-400" />
-              核心技能目标
-            </h2>
-            <p className="text-white/80">
-              掌握以下三大核心技能，为自动化工程师职业发展奠定坚实基础。
-            </p>
-          </div>
-        </LiquidGlass>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 mb-8">
+          <h2 className="text-3xl font-bold text-white mb-4 text-center">核心能力目标</h2>
+          <p className="text-white/80 text-center max-w-3xl mx-auto">
+            五大核心能力培养，构建完整的PLC技术知识体系
+          </p>
+        </div>
 
         <div className="space-y-8">
-          {primaryObjectives.map((objective, index) => (
-            <LiquidGlass
-              key={index}
-              displacementScale={50}
-              blurAmount={0.08}
-              saturation={130}
-              cornerRadius={16}
-              className="p-8"
-            >
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-600 rounded-xl flex items-center justify-center">
-                    {objective.icon}
+          {objectives.map((objective, index) => (
+            <div key={index} className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl overflow-hidden">
+              <div className="flex flex-col lg:flex-row">
+                {/* 目标图片 */}
+                <div className="lg:w-1/3">
+                  <div className="relative h-48 lg:h-full">
+                    <img 
+                      src={objective.image}
+                      alt={objective.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+                    <div className="absolute top-4 left-4">
+                      <div className={`w-12 h-12 bg-gradient-to-r ${objective.color} rounded-lg flex items-center justify-center`}>
+                        {objective.icon}
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4">
+                      <span className="text-blue-300 text-sm bg-blue-900/70 backdrop-blur-sm rounded-full px-3 py-1">
+                        目标 {index + 1}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex-grow">
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                
+                {/* 目标内容 */}
+                <div className="lg:w-2/3 p-8">
+                  <h3 className="text-2xl font-bold text-white mb-4">
                     {objective.title}
                   </h3>
-                  <p className="text-white/80 mb-4 leading-relaxed">
+                  <p className="text-white/80 mb-6 leading-relaxed text-lg">
                     {objective.description}
                   </p>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {objective.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-start space-x-2">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-white/90 text-sm">{detail}</span>
-                      </div>
-                    ))}
+                  <div className="space-y-2">
+                    <h4 className="text-white font-semibold mb-3">具体技能点：</h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {objective.skills.map((skill, skillIndex) => (
+                        <div key={skillIndex} className="flex items-center space-x-3">
+                          <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                          <span className="text-white/90 text-sm">{skill}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </LiquidGlass>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 理论知识目标 */}
+      {/* Assessment Standards */}
       <section className="mb-16">
-        <LiquidGlass
-          displacementScale={60}
-          blurAmount={0.08}
-          saturation={130}
-          cornerRadius={20}
-          className="mb-8"
-        >
-          <div className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <BookOpen className="w-6 h-6 mr-3 text-purple-400" />
-              理论知识掌握
-            </h2>
-            <p className="text-white/80">
-              深入理解自动化系统的核心理论，建立完整的知识体系框架。
-            </p>
-          </div>
-        </LiquidGlass>
-
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-          {theoreticalKnowledge.map((knowledge, index) => (
-            <LiquidGlass
-              key={index}
-              displacementScale={40}
-              blurAmount={0.08}
-              saturation={130}
-              cornerRadius={16}
-              className="p-6"
-            >
-              <h3 className="text-lg font-semibold text-white mb-4">
-                {knowledge.title}
-              </h3>
-              <div className="space-y-3">
-                {knowledge.points.map((point, pointIndex) => (
-                  <div key={pointIndex} className="flex items-start space-x-3">
-                    <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-white/80 text-sm leading-relaxed">{point}</span>
-                  </div>
-                ))}
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">课程权重分配</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="relative mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=150&h=100&fit=crop&auto=format"
+                  alt="课程学习"
+                  className="w-full h-20 object-cover rounded-lg mx-auto mb-2"
+                />
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-600 rounded-full flex items-center justify-center mx-auto -mt-8 relative z-10">
+                  <span className="text-white text-lg font-bold">70%</span>
+                </div>
               </div>
-            </LiquidGlass>
-          ))}
-        </div>
-      </section>
-
-      {/* 实践技能目标 */}
-      <section className="mb-16">
-        <LiquidGlass
-          displacementScale={60}
-          blurAmount={0.08}
-          saturation={130}
-          cornerRadius={20}
-          className="mb-8"
-        >
-          <div className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-              <Cpu className="w-6 h-6 mr-3 text-orange-400" />
-              实践技能培养
-            </h2>
-            <p className="text-white/80">
-              通过具体的操作练习，培养解决实际工程问题的能力。
-            </p>
-          </div>
-        </LiquidGlass>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {practicalSkills.map((skill, index) => (
-            <LiquidGlass
-              key={index}
-              displacementScale={50}
-              blurAmount={0.08}
-              saturation={130}
-              cornerRadius={16}
-              className="p-6"
-            >
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {skill.title}
-              </h3>
-              <p className="text-white/80 mb-4 leading-relaxed">
-                {skill.description}
-              </p>
-              <div className="space-y-3">
-                {skill.steps.map((step, stepIndex) => (
-                  <div key={stepIndex} className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-red-600 rounded text-white text-xs flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
-                      {stepIndex + 1}
-                    </div>
-                    <span className="text-white/90 text-sm leading-relaxed">{step}</span>
-                  </div>
-                ))}
+              <h3 className="text-lg font-semibold text-white mb-2">课程内容详解</h3>
+              <p className="text-white/70 text-sm">六大模块核心知识学习</p>
+            </div>
+            <div className="text-center">
+              <div className="relative mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=150&h=100&fit=crop&auto=format"
+                  alt="目标认知"
+                  className="w-full h-20 object-cover rounded-lg mx-auto mb-2"
+                />
+                <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-600 rounded-full flex items-center justify-center mx-auto -mt-8 relative z-10">
+                  <span className="text-white text-lg font-bold">15%</span>
+                </div>
               </div>
-            </LiquidGlass>
-          ))}
+              <h3 className="text-lg font-semibold text-white mb-2">目标与认知</h3>
+              <p className="text-white/70 text-sm">学习目标、岗位认知等</p>
+            </div>
+            <div className="text-center">
+              <div className="relative mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=150&h=100&fit=crop&auto=format"
+                  alt="测试评估"
+                  className="w-full h-20 object-cover rounded-lg mx-auto mb-2"
+                />
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-600 rounded-full flex items-center justify-center mx-auto -mt-8 relative z-10">
+                  <span className="text-white text-lg font-bold">15%</span>
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">总结与测试</h3>
+              <p className="text-white/70 text-sm">课程总结和课堂测试</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -295,6 +231,16 @@ const ObjectivesPage: React.FC = () => {
           <p className="text-white/80 mb-6 max-w-2xl mx-auto">
             让我们从自动化行业的基本构成开始，逐步建立完整的PLC知识体系。
           </p>
+          
+          {/* 学习路径图示 */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=400&h=150&fit=crop&auto=format"
+              alt="学习开始"
+              className="rounded-lg opacity-70"
+            />
+          </div>
+          
           <div className="flex flex-wrap justify-center gap-4">
             <LiquidGlass
               displacementScale={40}

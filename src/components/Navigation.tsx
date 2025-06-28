@@ -8,14 +8,12 @@ const Navigation: React.FC = () => {
   const location = useLocation();
 
   const courseModules = [
-    { name: '自动化行业认知', path: '/course/automation-industry' },
-    { name: 'PLC核心定位', path: '/course/plc-basics' },
-    { name: '电气接线规范', path: '/course/io-wiring' },
+    { name: 'PLC行业认知与基础框架', path: '/course/automation-industry' },
+    { name: 'PLC核心定位与硬件基础', path: '/course/plc-basics' },
+    { name: '电气接线与信号认知', path: '/course/io-wiring' },
     { name: '梯形图编程', path: '/course/ladder-diagram' },
-    { name: 'TIA Portal操作', path: '/course/tia-portal' },
-    { name: '安全强化模块', path: '/course/safety' },
-    { name: '进阶应用与发展', path: '/course/advanced' },
-    { name: '实践项目训练', path: '/course/projects' }
+    { name: '程序开发与调试', path: '/course/tia-portal' },
+    { name: '安全强化模块', path: '/course/safety' }
   ];
 
   const isActivePath = (path: string) => location.pathname === path;
