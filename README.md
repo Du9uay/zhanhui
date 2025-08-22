@@ -1,114 +1,101 @@
-# Liquid Glass React
+# 展会主题与品牌定位教学网页
 
-Apple's Liquid Glass effect for React.
+## 📖 项目简介
 
-Card Example              |  Button Example
-:-------------------------:|:-------------------------:
-![](https://github.com/rdev/liquid-glass-react/raw/master/assets/card.png)  |  ![](https://github.com/rdev/liquid-glass-react/raw/master/assets/button.png)
+这是一个基于React和TypeScript开发的展会主题与品牌定位课程教学网页，采用现代化的玻璃风格UI设计，为大专院校会展专业和市场营销专业学生提供优质的学习体验。
 
-## 🎬  Demo
+## 🎯 课程内容
 
-[Click here](https://liquid-glass.maxrovensky.com) to see it in action!
+### 核心模块
+- **全球消费电子展发展趋势**：了解消费电子展中5G、智能穿戴等新兴技术的应用趋势
+- **展会主题与品牌定位的核心概念**：学习展会主题的构成要素，掌握品牌定位的方法
+- **展会主题与品牌定位的主要流程**：目标观众调研、竞争分析、主题构思、定位陈述撰写
+- **展会主题策划与品牌定位方法**：SWOT分析法、定位一致性检验等工具运用
+- **消费电子展主题与品牌定位案例**：正向案例与风险案例分析
 
-![project liquid gif](./assets/project-liquid.gif)
+### 学生能力培养目标
+- 了解展会主题的定义与要素
+- 理解品牌定位的概念及重要性
+- 掌握SWOT分析法的操作
+- 具备定位一致性检验的能力
+- 运用案例分析优化展会主题与品牌定位
 
-## ✨ Features
+### 职业发展方向
+- **会展策划师**：展会定位与主题策划、空间设计与动线布局
+- **品牌策划运营专员**：品牌定位与主题表达、新品发布策划执行
+- **活动策划**：主题定位与活动框架、空间体验与互动设计
 
-- Proper edgy bending and refraction
-- Multiple refraction modes
-- Configurable frosty level
-- Supports arbitrary child elements
-- Configurable paddings
-- Correct hover and click effects
-- Edges and highlights take on the underlying light like Apple's does
-- Configurable chromatic aberration
-- Configurable elasticity, to mimic Apple's "liquid" feel
+## 🎨 设计特色
 
-> **⚠️ NOTE:** Safari and Firefox only partially support the effect (displacement will not be visible)
+- **现代玻璃风格UI**：采用最新的玻璃拟态设计，视觉效果现代时尚
+- **响应式布局**：完美适配各种设备尺寸
+- **流畅交互动画**：使用Framer Motion提供丝滑的用户体验
+- **渐变色彩搭配**：精心设计的色彩方案，营造专业学习氛围
 
-## 🚀 Usage
+## 🚀 技术栈
 
-### Installation
+- **前端框架**: React 18 + TypeScript
+- **样式系统**: Tailwind CSS + 自定义玻璃效果
+- **动画库**: Framer Motion
+- **路由管理**: React Router DOM
+- **构建工具**: Create React App
+
+## 📱 页面结构
+
+### 主要页面
+- **首页**: 课程概览与模块导航
+- **学习目标**: 详细的能力培养目标
+- **职业发展**: 会展相关职业路径介绍
+- **课程总结**: 知识点梳理与总结
+- **课堂测试**: 多种题型的在线测试
+- **作业练习**: 拖拽式互动练习
+
+### 课程章节
+- **全球消费电子展发展趋势**: 头部展会年度主题速览、热点主题分析
+- **展会主题与品牌定位的核心概念**: 展会主题的定义与要素、品牌定位的概念
+- **展会主题与品牌定位的主要流程**: 目标观众调研、竞争分析、主题构思、定位陈述
+- **展会主题策划与品牌定位方法**: SWOT分析法、定位一致性检验
+- **消费电子展主题与品牌定位案例**: 行业特性考量、经典案例拆解
+
+## 🎯 教学特色
+
+### 实践案例教学
+- **AR眼镜品牌案例**: "无缝连接现实与数字世界"主题分析
+- **技术保密性与传播吸引力平衡**: 展会技术展示策略
+- **前瞻性主题设计**: 快速迭代行业的主题策划技巧
+
+### 互动学习体验
+- **课堂测试系统**: 选择题、填空题、连线题、排序题
+- **作业练习平台**: 拖拽式主题构建练习
+- **进度跟踪功能**: 学习进度可视化展示
+
+### 知识点覆盖
+- 展会主题要素与构成
+- 品牌定位方法与技巧
+- SWOT分析法实操
+- 定位一致性检验
+- 案例分析与应用
+
+## 🔧 本地开发
 
 ```bash
-npm install liquid-glass-react
+# 克隆项目
+git clone https://github.com/Du9uay/zhanhui.git
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm start
+
+# 构建生产版本
+npm run build
 ```
 
-### Basic Usage
+## 📄 许可证
 
-```tsx
-import LiquidGlass from 'liquid-glass-react'
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
 
-function App() {
-  return (
-    <LiquidGlass>
-      <div className="p-6">
-        <h2>Your content here</h2>
-        <p>This will have the liquid glass effect</p>
-      </div>
-    </LiquidGlass>
-  )
-}
-```
+## 🙏 致谢
 
-### Button Example
-
-```tsx
-<LiquidGlass
-  displacementScale={64}
-  blurAmount={0.1}
-  saturation={130}
-  aberrationIntensity={2}
-  elasticity={0.35}
-  cornerRadius={100}
-  padding="8px 16px"
-  onClick={() => console.log('Button clicked!')}
->
-  <span className="text-white font-medium">Click Me</span>
-</LiquidGlass>
-```
-
-### Mouse Container Example
-
-When you want the glass effect to respond to mouse movement over a larger area (like a parent container), use the `mouseContainer` prop:
-
-```tsx
-function App() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  return (
-    <div ref={containerRef} className="w-full h-screen bg-image">
-      <LiquidGlass
-        mouseContainer={containerRef}
-        elasticity={0.3}
-        style={{ position: 'fixed', top: '50%', left: '50%' }}
-      >
-        <div className="p-6">
-          <h2>Glass responds to mouse anywhere in the container</h2>
-        </div>
-      </LiquidGlass>
-    </div>
-  )
-}
-```
-
-## Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `React.ReactNode` | - | The content to render inside the glass container |
-| `displacementScale` | `number` | `70` | Controls the intensity of the displacement effect |
-| `blurAmount` | `number` | `0.0625` | Controls the blur/frosting level |
-| `saturation` | `number` | `140` | Controls color saturation of the glass effect |
-| `aberrationIntensity` | `number` | `2` | Controls chromatic aberration intensity |
-| `elasticity` | `number` | `0.15` | Controls the "liquid" elastic feel (0 = rigid, higher = more elastic) |
-| `cornerRadius` | `number` | `999` | Border radius in pixels |
-| `className` | `string` | `""` | Additional CSS classes |
-| `padding` | `string` | - | CSS padding value |
-| `style` | `React.CSSProperties` | - | Additional inline styles |
-| `overLight` | `boolean` | `false` | Whether the glass is over a light background |
-| `onClick` | `() => void` | - | Click handler |
-| `mouseContainer` | `React.RefObject<HTMLElement \| null> \| null` | `null` | Container element to track mouse movement on (defaults to the glass component itself) |
-| `mode` | `"standard" \| "polar" \| "prominent" \| "shader"` | `"standard"` | Refraction mode for different visual effects. `shader` is the most accurate but not the most stable. |
-| `globalMousePos` | `{ x: number; y: number }` | - | Global mouse position coordinates for manual control |
-| `mouseOffset` | `{ x: number; y: number }` | - | Mouse position offset for fine-tuning positioning |
+感谢所有为会展教育事业贡献力量的教育工作者和行业专家！
