@@ -124,15 +124,6 @@ const Navigation: React.FC = () => {
             >
               课堂测试
             </Link>
-            <Link
-              to="/homework"
-              className={`relative text-sm font-medium transition-colors focus-accent ${
-                isActivePath('/homework') ? 'text-base-50' : 'text-base-50/80 hover:text-base-50'
-              }`}
-              onClick={() => setIsCoursesOpen(false)}
-            >
-              课后作业
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -213,15 +204,6 @@ const Navigation: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               课堂测试
-            </Link>
-            <Link
-              to="/homework"
-              className={`block px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                isActivePath('/homework') ? 'text-base-50 bg-accent-500/10' : 'text-base-50/80 hover:text-base-50 hover:bg-white/5'
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              课后作业
             </Link>
           </div>
         )}

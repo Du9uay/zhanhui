@@ -15,7 +15,6 @@ import CaseStudiesPage from './pages/course/CaseStudiesPage';
 
 import CourseSummaryPage from './pages/CourseSummaryPage';
 import CourseTestPage from './pages/CourseTestPage';
-import HomeworkPage from './pages/HomeworkPage';
 
 
 
@@ -40,7 +39,6 @@ const App: React.FC = () => {
 
             <Route path="/course-summary" element={<CourseSummaryPage />} />
             <Route path="/course-test" element={<CourseTestPage />} />
-            <Route path="/homework" element={<HomeworkPage />} />
 
           </Routes>
         </div>
