@@ -66,25 +66,34 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
 
         {/* 主标题 - 增强视觉效果 */}
         <motion.div 
-          className="relative mb-16 overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-indigo-500/20 p-12 backdrop-blur-sm border border-white/10"
+          className="relative mb-16 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500/20 via-amber-500/20 to-teal-500/20 p-12 backdrop-blur-sm border border-white/10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          {/* 背景图片 - 增强显示 */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-70 z-10"
+            style={{ 
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第一章全球消费电子展发展趋势/第一章_全球消费电子展发展趋势背景图.jpg)`,
+              backgroundBlendMode: 'multiply'
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-black/20 z-20"></div>
           {/* 背景装饰 */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-500/30 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-pink-500/30 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/30 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-amber-500/30 to-transparent rounded-full blur-3xl"></div>
           
-          <div className="relative z-10 text-center">
+          <div className="relative z-30 text-center">
             <motion.div 
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl mb-6 shadow-2xl"
+              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-400 to-amber-400 rounded-2xl mb-6 shadow-2xl"
               initial={{ rotate: -10 }}
               animate={{ rotate: 0 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
               <TrendingUp className="w-10 h-10 text-white" />
             </motion.div>
-            <h1 className="text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
+            <h1 className="text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-amber-400 to-teal-400">
               全球消费电子展发展趋势
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
@@ -105,9 +114,9 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-8">
               {/* 左侧标题卡片 */}
               <div className="lg:col-span-4">
-                <div className="sticky top-8 glass-card p-6 border-l-4 border-purple-400">
+                <div className="sticky top-8 glass-card p-6 border-l-4 border-blue-400">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-amber-400 rounded-xl flex items-center justify-center mr-4">
                       <Globe className="w-6 h-6 text-white" />
                     </div>
                     <div className="text-3xl font-bold text-white">01</div>
@@ -124,34 +133,34 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
                   variants={fadeInScale}
                 >
                   <p className="text-white/90 leading-relaxed mb-6">
-                    全球消费电子展中，头部展会的年度主题是其核心导向。以CES（国际消费电子展）为例，2024年的主题为<span className="text-pink-400 font-bold text-lg mx-1">"All Together Now"</span>。从概念层面看，这一主题体现了后疫情时代消费电子领域对技术融合与协作的强烈需求。
+                    全球消费电子展中，头部展会的年度主题是其核心导向。以CES（国际消费电子展）为例，2024年的主题为<span className="text-amber-400 font-bold text-lg mx-1">"All Together Now"</span>。从概念层面看，这一主题体现了后疫情时代消费电子领域对技术融合与协作的强烈需求。
                   </p>
                   
                   {/* 主题内涵分析 - 图标列表 */}
-                  <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-400/30">
+                  <div className="bg-gradient-to-r from-blue-500/10 to-amber-500/10 rounded-2xl p-6 border border-blue-400/30">
                     <h3 className="font-bold text-white mb-4 flex items-center">
-                      <Sparkles className="w-5 h-5 mr-2 text-purple-400" />
+                      <Sparkles className="w-5 h-5 mr-2 text-blue-400" />
                       主题内涵分析
                     </h3>
                     <div className="space-y-4">
                       <div className="flex items-start">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <div>
-                          <span className="text-purple-400 font-semibold">核心理念：</span>
+                          <span className="text-blue-400 font-semibold">核心理念：</span>
                           <span className="text-white/80 ml-2">打破不同技术领域、不同参与主体之间的壁垒</span>
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-amber-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <div>
-                          <span className="text-pink-400 font-semibold">应用领域：</span>
+                          <span className="text-amber-400 font-semibold">应用领域：</span>
                           <span className="text-white/80 ml-2">AI（人工智能）、IoT（物联网）、可持续发展</span>
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-teal-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                         <div>
-                          <span className="text-indigo-400 font-semibold">价值导向：</span>
+                          <span className="text-teal-400 font-semibold">价值导向：</span>
                           <span className="text-white/80 ml-2">引导参展商和观众关注技术协作实现产业整体进步</span>
                         </div>
                       </div>
@@ -167,8 +176,8 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
                     whileHover={{ y: -5 }}
                   >
                     <div className="flex items-center mb-4">
-                      <Target className="w-8 h-8 text-purple-400 mr-3" />
-                      <h4 className="font-bold text-purple-400">CES 2024</h4>
+                      <Target className="w-8 h-8 text-blue-400 mr-3" />
+                      <h4 className="font-bold text-blue-400">CES 2024</h4>
                     </div>
                     <h5 className="text-white font-semibold mb-3">智能家居展示</h5>
                     <p className="text-white/70 text-sm leading-relaxed">
@@ -182,8 +191,8 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
                     whileHover={{ y: -5 }}
                   >
                     <div className="flex items-center mb-4">
-                      <Zap className="w-8 h-8 text-pink-400 mr-3" />
-                      <h4 className="font-bold text-pink-400">CES 2023</h4>
+                      <Zap className="w-8 h-8 text-amber-400 mr-3" />
+                      <h4 className="font-bold text-amber-400">CES 2023</h4>
                     </div>
                     <h5 className="text-white font-semibold mb-3">Catching Light主题</h5>
                     <p className="text-white/70 text-sm leading-relaxed">
@@ -199,7 +208,7 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             <div className="mb-8 text-center">
               <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-2xl mb-4"
+                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-400 rounded-2xl mb-4"
                 initial={{ rotate: -10 }}
                 animate={{ rotate: 0 }}
                 transition={{ type: "spring", stiffness: 200 }}
@@ -213,60 +222,75 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
             {/* 三列技术卡片 */}
             <div className="grid lg:grid-cols-3 gap-6 mb-8">
               <motion.div 
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 p-6 border border-purple-400/30 group"
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 p-6 border border-blue-400/30 group"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                {/* 元宇宙背景图 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-30"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第一章全球消费电子展发展趋势/第一章_元宇宙背景图.jpg)` }}
+                ></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">元宇宙</h3>
                   <p className="text-white/80 text-sm mb-4">
                     随着VR和AR技术的不断发展，消费者对沉浸式数字体验的需求日益增长。
                   </p>
-                  <div className="text-purple-400 text-xs font-semibold">
+                  <div className="text-blue-400 text-xs font-semibold">
                     探索元宇宙新边界
                   </div>
                 </div>
               </motion.div>
 
               <motion.div 
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 p-6 border border-pink-400/30 group"
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/20 p-6 border border-amber-400/30 group"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                {/* 人工智能背景图 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-30"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第一章全球消费电子展发展趋势/第一章_人工智能背景图.jpg)` }}
+                ></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-pink-500 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center mb-4">
                     <Sparkles className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">人工智能</h3>
                   <p className="text-white/80 text-sm mb-4">
                     AI技术深度融入消费电子产品，提供个性化、智能化的用户体验。
                   </p>
-                  <div className="text-pink-400 text-xs font-semibold">
+                  <div className="text-amber-400 text-xs font-semibold">
                     AI赋能万物互联
                   </div>
                 </div>
               </motion.div>
 
               <motion.div 
-                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 p-6 border border-indigo-400/30 group"
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-teal-500/20 to-teal-600/20 p-6 border border-teal-400/30 group"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+                {/* 绿色科技背景图 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-30"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第一章全球消费电子展发展趋势/第一章_绿色科技背景图.jpg)` }}
+                ></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mb-4">
                     <Globe className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">绿色科技</h3>
                   <p className="text-white/80 text-sm mb-4">
                     可持续发展理念推动消费电子向环保、节能方向发展。
                   </p>
-                  <div className="text-indigo-400 text-xs font-semibold">
+                  <div className="text-teal-400 text-xs font-semibold">
                     科技与自然和谐共生
                   </div>
                 </div>
@@ -275,13 +299,13 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
 
             {/* 5G与元宇宙结合 - 特色展示 */}
             <motion.div 
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-indigo-500/10 p-8 border border-white/10"
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-500/10 via-amber-500/10 to-teal-500/10 p-8 border border-white/10"
               variants={fadeInScale}
             >
-              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-transparent rounded-full blur-3xl"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="w-1 h-16 bg-gradient-to-b from-purple-400 to-pink-400 mr-6"></div>
+                  <div className="w-1 h-16 bg-gradient-to-b from-blue-400 to-amber-400 mr-6"></div>
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">5G与元宇宙深度融合</h3>
                     <p className="text-white/70">2023年MWC展会亮点技术展示</p>
@@ -294,9 +318,9 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
                       展示了基于5G和元宇宙技术的远程协作办公场景，用户可以通过消费电子设备进入虚拟办公空间。
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">高速率</span>
-                      <span className="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">低延迟</span>
-                      <span className="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-xs">流畅交互</span>
+                      <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">高速率</span>
+                      <span className="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs">低延迟</span>
+                      <span className="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-xs">流畅交互</span>
                     </div>
                   </div>
                   
@@ -322,7 +346,7 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
             
             <Link 
               to="/course/theme-brand-concepts"
-              className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-500 to-amber-500 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               <span className="relative z-10 flex items-center">

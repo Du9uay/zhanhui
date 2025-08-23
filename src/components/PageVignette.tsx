@@ -9,11 +9,11 @@ const PageVignette: React.FC<PageVignetteProps> = ({ className = '' }) => {
   return (
     <div className={`fixed inset-0 pointer-events-none z-0 ${className}`}>
       {/* 主背景渐变 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-amber-900/20" />
       
       {/* 动态光晕效果 */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
         animate={{
           x: [0, 100, 0],
           y: [0, -50, 0],
@@ -27,7 +27,7 @@ const PageVignette: React.FC<PageVignetteProps> = ({ className = '' }) => {
       />
       
       <motion.div
-        className="absolute top-3/4 right-1/4 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"
+        className="absolute top-3/4 right-1/4 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl"
         animate={{
           x: [0, -80, 0],
           y: [0, 60, 0],

@@ -91,13 +91,18 @@ const ThemeBrandConceptsPage: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="glass-card p-12 text-center relative overflow-hidden">
+            {/* 品牌定位概念背景图 */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-50 z-0"
+              style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第二章展会主题与品牌定位的核心概念/第二章_品牌定位的概念背景图.jpg)` }}
+            ></div>
             {/* 装饰性背景元素 */}
-            <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-0 right-0 w-40 h-40 bg-pink-500/20 rounded-full blur-2xl"></div>
+            <div className="absolute top-0 left-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-amber-500/20 rounded-full blur-2xl"></div>
             
             <div className="relative z-10">
               <motion.div 
-                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-400 to-indigo-400 rounded-3xl mb-8 shadow-2xl"
+                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 to-teal-400 rounded-3xl mb-8 shadow-2xl"
                 initial={{ rotate: -5 }}
                 animate={{ rotate: 0 }}
                 transition={{ type: "spring", stiffness: 200 }}
@@ -125,26 +130,26 @@ const ThemeBrandConceptsPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             {/* 章节标题 */}
             <div className="flex items-center mb-12">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-2xl mr-6">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-teal-400 rounded-2xl mr-6">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-purple-400 font-semibold text-sm mb-1">SECTION 01</div>
+                <div className="text-blue-400 font-semibold text-sm mb-1">SECTION 01</div>
                 <h2 className="text-3xl font-bold text-white">展会主题的定义与要素</h2>
               </div>
             </div>
 
             {/* 核心定义 - 大引用卡片 */}
             <motion.div 
-              className="glass-card p-8 mb-12 border-l-8 border-purple-400"
+              className="glass-card p-8 mb-12 border-l-8 border-blue-400"
               variants={slideInLeft}
             >
               <div className="flex items-start">
-                <Sparkles className="w-8 h-8 text-purple-400 mr-4 mt-1" />
+                <Sparkles className="w-8 h-8 text-blue-400 mr-4 mt-1" />
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">核心定义</h3>
                   <p className="text-xl text-white/90 leading-relaxed">
-                    展会主题是展会的<span className="text-pink-400 font-bold">灵魂所在</span>，它是展会组织方为了传达展会核心价值而提炼出的简洁且具有吸引力的核心思想。
+                    展会主题是展会的<span className="text-amber-400 font-bold">灵魂所在</span>，它是展会组织方为了传达展会核心价值而提炼出的简洁且具有吸引力的核心思想。
                   </p>
                 </div>
               </div>
@@ -153,7 +158,7 @@ const ThemeBrandConceptsPage: React.FC = () => {
             {/* 三要素 - 垂直时间线设计 */}
             <div className="relative">
               {/* 时间线 */}
-              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 via-pink-400 to-indigo-400 rounded-full"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 via-amber-400 to-teal-400 rounded-full"></div>
               
               <div className="space-y-8">
                 {[
@@ -161,19 +166,19 @@ const ThemeBrandConceptsPage: React.FC = () => {
                     icon: Target,
                     title: "核心思想",
                     description: "能够精准概括展会的主要内容和价值取向",
-                    color: "purple"
+                    color: "blue"
                   },
                   {
                     icon: Users,
                     title: "目标受众指向", 
                     description: "明确针对的是哪些人群，如科技爱好者、行业从业者等",
-                    color: "pink"
+                    color: "amber"
                   },
                   {
                     icon: Award,
                     title: "行业特色",
                     description: "必须体现消费电子行业的特点，如最新技术应用、产品创新等",
-                    color: "indigo"
+                    color: "teal"
                   }
                 ].map((item, index) => (
                   <motion.div 
@@ -202,28 +207,33 @@ const ThemeBrandConceptsPage: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-8 text-center">案例分析</h3>
               <div className="grid lg:grid-cols-2 gap-8">
                 <motion.div 
-                  className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 p-8 border border-purple-400/30"
+                  className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500/10 to-blue-600/10 p-8 border border-blue-400/30"
                   variants={slideInLeft}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+                  {/* 智能生活示例图 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-25"
+                    style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第二章展会主题与品牌定位的核心概念/第二章_智能生活新视界示例图.jpg)` }}
+                  ></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
                   <div className="relative z-10">
                     <div className="flex items-center mb-6">
-                      <div className="w-3 h-12 bg-purple-400 rounded-full mr-4"></div>
-                      <h4 className="text-xl font-bold text-purple-400">案例一："智能生活新视界"</h4>
+                      <div className="w-3 h-12 bg-blue-400 rounded-full mr-4"></div>
+                      <h4 className="text-xl font-bold text-blue-400">案例一："智能生活新视界"</h4>
                     </div>
                     
                     <div className="space-y-4">
                       <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
-                        <span className="text-purple-400 font-semibold text-sm">核心思想</span>
+                        <span className="text-blue-400 font-semibold text-sm">核心思想</span>
                         <p className="text-white/80 text-sm mt-1">展示智能技术如何开启新的生活方式</p>
                       </div>
                       <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
-                        <span className="text-purple-400 font-semibold text-sm">目标受众</span>
+                        <span className="text-blue-400 font-semibold text-sm">目标受众</span>
                         <p className="text-white/80 text-sm mt-1">科技爱好者和相关行业从业者</p>
                       </div>
                       <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
-                        <span className="text-purple-400 font-semibold text-sm">行业特色</span>
+                        <span className="text-blue-400 font-semibold text-sm">行业特色</span>
                         <p className="text-white/80 text-sm mt-1">突出智能技术应用</p>
                       </div>
                     </div>
@@ -235,6 +245,11 @@ const ThemeBrandConceptsPage: React.FC = () => {
                   variants={slideInRight}
                   whileHover={{ scale: 1.02 }}
                 >
+                  {/* 绿色未来示例图 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-25"
+                    style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第二章展会主题与品牌定位的核心概念/第二章_消费电子的绿色未来示例图.jpg)` }}
+                  ></div>
                   <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
                   <div className="relative z-10">
                     <div className="flex items-center mb-6">
@@ -271,11 +286,11 @@ const ThemeBrandConceptsPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             {/* 章节标题 */}
             <div className="flex items-center mb-12">
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-400 rounded-2xl mr-6">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-blue-400 rounded-2xl mr-6">
                 <Brand className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-pink-400 font-semibold text-sm mb-1">SECTION 02</div>
+                <div className="text-amber-400 font-semibold text-sm mb-1">SECTION 02</div>
                 <h2 className="text-3xl font-bold text-white">品牌定位的概念</h2>
               </div>
             </div>
@@ -285,11 +300,11 @@ const ThemeBrandConceptsPage: React.FC = () => {
               className="glass-card p-10 mb-12 text-center relative overflow-hidden"
               variants={itemVariants}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/5 to-purple-500/5"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 to-blue-500/5"></div>
               <div className="relative z-10">
-                <Compass className="w-16 h-16 text-pink-400 mx-auto mb-6" />
+                <Compass className="w-16 h-16 text-amber-400 mx-auto mb-6" />
                 <p className="text-2xl text-white/90 leading-relaxed max-w-4xl mx-auto">
-                  品牌定位是展会在目标市场中<span className="text-pink-400 font-bold">确立独特位置</span>的过程，旨在让展会在众多同类展会中脱颖而出。它强调展会要突出与其他展会的差异，明确自身的独特价值。
+                  品牌定位是展会在目标市场中<span className="text-amber-400 font-bold">确立独特位置</span>的过程，旨在让展会在众多同类展会中脱颖而出。它强调展会要突出与其他展会的差异，明确自身的独特价值。
                 </p>
               </div>
             </motion.div>
@@ -299,14 +314,14 @@ const ThemeBrandConceptsPage: React.FC = () => {
               <motion.div variants={slideInLeft}>
                 <div className="glass-card p-8 h-full">
                   <div className="flex items-center mb-6">
-                    <CheckCircle className="w-8 h-8 text-pink-400 mr-3" />
+                    <CheckCircle className="w-8 h-8 text-amber-400 mr-3" />
                     <h3 className="text-xl font-bold text-white">定位要素</h3>
                   </div>
                   <div className="space-y-4">
                     {[
-                      { color: "purple", text: "展会的资源与优势" },
-                      { color: "pink", text: "目标市场的需求分析" },
-                      { color: "indigo", text: "竞争对手的差异化分析" }
+                      { color: "blue", text: "展会的资源与优势" },
+                      { color: "amber", text: "目标市场的需求分析" },
+                      { color: "teal", text: "竞争对手的差异化分析" }
                     ].map((item, index) => (
                       <div key={index} className="flex items-center p-3 bg-white/5 rounded-xl">
                         <div className={`w-3 h-3 bg-${item.color}-400 rounded-full mr-3`}></div>
@@ -320,12 +335,12 @@ const ThemeBrandConceptsPage: React.FC = () => {
               <motion.div variants={slideInRight}>
                 <div className="glass-card p-8 h-full">
                   <div className="flex items-center mb-6">
-                    <Target className="w-8 h-8 text-indigo-400 mr-3" />
+                    <Target className="w-8 h-8 text-teal-400 mr-3" />
                     <h3 className="text-xl font-bold text-white">定位目标</h3>
                   </div>
                   <div className="space-y-4">
                     {[
-                      { color: "purple", text: "吸引特定的目标受众" },
+                      { color: "blue", text: "吸引特定的目标受众" },
                       { color: "green", text: "树立独特的展会品牌形象" },
                       { color: "orange", text: "在市场中确立优势地位" }
                     ].map((item, index) => (
@@ -348,21 +363,21 @@ const ThemeBrandConceptsPage: React.FC = () => {
                   variants={slideInLeft}
                   whileHover={{ x: 10 }}
                 >
-                  <div className="glass-card p-8 border-l-4 border-pink-400">
+                  <div className="glass-card p-8 border-l-4 border-amber-400">
                     <div className="flex items-start justify-between mb-4">
-                      <h4 className="text-xl font-bold text-pink-400">"高端定制化消费电子解决方案提供商"</h4>
-                      <div className="w-2 h-2 bg-pink-400 rounded-full mt-2"></div>
+                      <h4 className="text-xl font-bold text-amber-400">"高端定制化消费电子解决方案提供商"</h4>
+                      <div className="w-2 h-2 bg-amber-400 rounded-full mt-2"></div>
                     </div>
                     <p className="text-white/80 mb-6 leading-relaxed">
                       这种定位聚焦于为客户提供个性化、高端的消费电子解决方案，与那些综合型、大众化的消费电子展会形成差异。
                     </p>
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-pink-500/10 rounded-xl p-4">
-                        <span className="text-pink-400 font-semibold text-sm">独特价值</span>
+                      <div className="bg-amber-500/10 rounded-xl p-4">
+                        <span className="text-amber-400 font-semibold text-sm">独特价值</span>
                         <p className="text-white/70 text-sm mt-1">个性化高端解决方案</p>
                       </div>
-                      <div className="bg-pink-500/10 rounded-xl p-4">
-                        <span className="text-pink-400 font-semibold text-sm">目标受众</span>
+                      <div className="bg-amber-500/10 rounded-xl p-4">
+                        <span className="text-amber-400 font-semibold text-sm">目标受众</span>
                         <p className="text-white/70 text-sm mt-1">有高端定制需求的客户</p>
                       </div>
                     </div>
@@ -411,13 +426,13 @@ const ThemeBrandConceptsPage: React.FC = () => {
               to="/course/consumer-electronics-trends"
               className="group flex items-center space-x-3 glass-card px-6 py-4 hover:shadow-glass-hover transition-all duration-300"
             >
-              <ArrowLeft className="w-5 h-5 text-purple-400 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-5 h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
               <span className="text-white">上一章：全球消费电子展发展趋势</span>
             </Link>
             
             <Link 
               to="/course/positioning-process"
-              className="group flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-amber-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <span>下一章：展会主题与品牌定位的主要流程</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

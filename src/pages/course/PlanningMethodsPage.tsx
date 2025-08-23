@@ -83,7 +83,7 @@ const PlanningMethodsPage: React.FC = () => {
     {
       category: "Weaknesses（劣势）",
       color: "red",
-      bgGradient: "from-red-500/20 to-pink-600/20",
+      bgGradient: "from-red-500/20 to-amber-600/20",
       borderColor: "border-red-400/30",
       iconBg: "bg-red-500",
       items: [
@@ -127,7 +127,7 @@ const PlanningMethodsPage: React.FC = () => {
       title: "线上问卷调研",
       icon: "📊",
       desc: "通过在线调研收集目标观众反馈",
-      color: "purple",
+      color: "blue",
       detail: "设计结构化问卷，获取量化数据"
     },
     {
@@ -135,7 +135,7 @@ const PlanningMethodsPage: React.FC = () => {
       title: "线下访谈反馈",
       icon: "💬",
       desc: "深度面对面访谈获取质性意见",
-      color: "pink",
+      color: "amber",
       detail: "一对一深度访谈，探索深层需求"
     },
     {
@@ -143,7 +143,7 @@ const PlanningMethodsPage: React.FC = () => {
       title: "焦点小组讨论",
       icon: "👥",
       desc: "组织小组讨论形成集体智慧",
-      color: "indigo", 
+      color: "teal", 
       detail: "6-10人焦点小组，群体互动讨论"
     },
     {
@@ -197,14 +197,14 @@ const PlanningMethodsPage: React.FC = () => {
         >
           <div className="glass-card p-16 text-center relative overflow-hidden">
             {/* 工具图标装饰 */}
-            <div className="absolute top-8 left-8 w-12 h-12 bg-purple-500/20 rounded-xl rotate-12"></div>
-            <div className="absolute top-12 right-12 w-8 h-8 bg-pink-500/20 rounded-full"></div>
-            <div className="absolute bottom-8 left-16 w-10 h-10 bg-indigo-500/20 rounded-lg -rotate-12"></div>
+            <div className="absolute top-8 left-8 w-12 h-12 bg-blue-500/20 rounded-xl rotate-12"></div>
+            <div className="absolute top-12 right-12 w-8 h-8 bg-amber-500/20 rounded-full"></div>
+            <div className="absolute bottom-8 left-16 w-10 h-10 bg-teal-500/20 rounded-lg -rotate-12"></div>
             <div className="absolute bottom-12 right-8 w-6 h-6 bg-teal-500/20 rounded-full"></div>
             
             <div className="relative z-10">
               <motion.div 
-                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-400 via-pink-400 to-indigo-400 rounded-3xl mb-8 shadow-2xl"
+                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 via-amber-400 to-teal-400 rounded-3xl mb-8 shadow-2xl"
                 initial={{ rotate: -5, scale: 0.8 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, delay: 0.4 }}
@@ -216,7 +216,7 @@ const PlanningMethodsPage: React.FC = () => {
               <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
                 展会主题策划与品牌定位方法
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-6"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-amber-400 rounded-full mx-auto mb-6"></div>
               <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
                 本章节重点讲解展会主题策划与品牌定位方法。学员将学会结合市场状况策划展会主题，还能掌握品牌定位技巧，如分析目标受众、找出品牌独特卖点，从而明确展会与品牌的特色方向，提升其在市场中的辨识度与竞争力。
               </p>
@@ -234,17 +234,24 @@ const PlanningMethodsPage: React.FC = () => {
           {/* SWOT分析法 - 四象限工具板设计 */}
           <motion.section variants={itemVariants}>
             {/* 方法介绍 */}
-            <div className="text-center mb-16">
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-2xl mb-6"
-                whileHover={{ rotate: 10 }}
-              >
-                <Shield className="w-8 h-8 text-white" />
-              </motion.div>
-              <h2 className="text-3xl font-bold text-white mb-4">SWOT分析法</h2>
-              <p className="text-white/70 max-w-3xl mx-auto">
-                通过分析优势、劣势、机会和威胁四个维度，为展会主题策划和品牌定位提供全面的战略参考
-              </p>
+            <div className="text-center mb-16 relative overflow-hidden rounded-3xl p-12">
+              {/* SWOT分析法背景图 */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-40 z-0"
+                style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第四章展会主题策划与品牌定位方法/SWOT分析法-主图.jpeg)` }}
+              ></div>
+              <div className="relative z-10">
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-2xl mb-6"
+                  whileHover={{ rotate: 10 }}
+                >
+                  <Shield className="w-8 h-8 text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold text-white mb-4">SWOT分析法</h2>
+                <p className="text-white/70 max-w-3xl mx-auto">
+                  通过分析优势、劣势、机会和威胁四个维度，为展会主题策划和品牌定位提供全面的战略参考
+                </p>
+              </div>
             </div>
 
             {/* 理论背景 */}
@@ -277,6 +284,13 @@ const PlanningMethodsPage: React.FC = () => {
                   transition={{ delay: 0.6 + index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
+                  {/* SWOT象限背景图 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-50 z-0"
+                    style={{ 
+                      backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第四章展会主题策划与品牌定位方法/SWOT分析法——${quadrant.category.charAt(0)}.jpg)` 
+                    }}
+                  ></div>
                   {/* 装饰性背景 */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
                   
@@ -317,10 +331,10 @@ const PlanningMethodsPage: React.FC = () => {
 
             {/* SWOT应用案例 - 双栏对比设计 */}
             <motion.div 
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 p-8 border border-white/10"
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-teal-500/10 p-8 border border-white/10"
               variants={itemVariants}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-purple-500/5"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5"></div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-white mb-8 text-center">SWOT分析实战案例</h3>
                 
@@ -355,7 +369,7 @@ const PlanningMethodsPage: React.FC = () => {
                     className="glass-card p-6"
                     variants={slideFromRight}
                   >
-                    <h4 className="text-xl font-bold text-purple-400 mb-6">战略调整方案</h4>
+                    <h4 className="text-xl font-bold text-blue-400 mb-6">战略调整方案</h4>
                     
                     <div className="space-y-6">
                       <div>
@@ -365,15 +379,15 @@ const PlanningMethodsPage: React.FC = () => {
                         </h5>
                         <div className="space-y-3">
                           <div className="flex items-start space-x-3">
-                            <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">1</div>
+                            <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">1</div>
                             <p className="text-white/80 text-sm">利用媒体合作优势，扩大展会宣传覆盖面</p>
                           </div>
                           <div className="flex items-start space-x-3">
-                            <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">2</div>
+                            <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">2</div>
                             <p className="text-white/80 text-sm">增加AR互动体验区和VR体验区数量</p>
                           </div>
                           <div className="flex items-start space-x-3">
-                            <div className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">3</div>
+                            <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">3</div>
                             <p className="text-white/80 text-sm">调整主题为"元宇宙消费电子新体验"</p>
                           </div>
                           <div className="flex items-start space-x-3">
@@ -383,8 +397,8 @@ const PlanningMethodsPage: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="bg-purple-500/10 rounded-xl p-4 border border-purple-400/20">
-                        <h5 className="font-semibold text-purple-400 mb-2 text-sm">实施效果</h5>
+                      <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-400/20">
+                        <h5 className="font-semibold text-blue-400 mb-2 text-sm">实施效果</h5>
                         <p className="text-white/70 text-sm">
                           通过这些调整提升了展会的竞争力，如HTC在元宇宙消费电子领域的布局和展示，
                           成功吸引了大量关注元宇宙技术的观众和参展商。
@@ -401,30 +415,30 @@ const PlanningMethodsPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             {/* 标题区域 */}
             <div className="text-center mb-16">
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-2xl mb-6"
-                whileHover={{ rotate: -10 }}
-              >
-                <CheckCircle className="w-8 h-8 text-white" />
-              </motion.div>
-              <h2 className="text-3xl font-bold text-white mb-4">定位一致性检验</h2>
-              <p className="text-white/70 max-w-3xl mx-auto">
-                确保展会主题、品牌定位与目标观众需求、市场实际情况保持一致的重要环节
-              </p>
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-teal-400 rounded-2xl mb-6"
+                  whileHover={{ rotate: -10 }}
+                >
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold text-white mb-4">定位一致性检验</h2>
+                <p className="text-white/70 max-w-3xl mx-auto">
+                  确保展会主题、品牌定位与目标观众需求、市场实际情况保持一致的重要环节
+                </p>
             </div>
 
             {/* 检验目的说明 */}
             <motion.div 
-              className="glass-card p-8 mb-12 border-l-4 border-purple-400"
+              className="glass-card p-8 mb-12 border-l-4 border-blue-400"
               variants={slideFromLeft}
             >
               <div className="flex items-start">
-                <div className="w-2 h-2 bg-purple-400 rounded-full mt-3 mr-4"></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 mr-4"></div>
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-4">检验目的</h3>
                   <p className="text-white/80 leading-relaxed text-lg">
                     定位一致性检验是确保展会主题、品牌定位与目标观众需求、市场实际情况等保持一致的重要环节。
-                    通过检验来发现可能存在的<span className="text-pink-400 font-bold">偏差并进行调整</span>。
+                    通过检验来发现可能存在的<span className="text-amber-400 font-bold">偏差并进行调整</span>。
                   </p>
                 </div>
               </div>
@@ -432,16 +446,31 @@ const PlanningMethodsPage: React.FC = () => {
 
             {/* 检验方法 - 工具卡片阵列 */}
             <div className="grid lg:grid-cols-4 gap-6 mb-16">
-              {checkMethods.map((method, index) => (
-                <motion.div
-                  key={index}
-                  className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-${method.color}-500/20 to-${method.color}-600/20 p-6 border border-${method.color}-400/30 group`}
-                  variants={scaleIn}
-                  transition={{ delay: 0.8 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -8 }}
-                >
-                  {/* 装饰背景 */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+              {checkMethods.map((method, index) => {
+                const methodImages = [
+                  "定位一致性检验——线上问卷调研.jpeg",
+                  "定位一致性检验——线下访谈反馈.jpeg", 
+                  "定位一致性检验——焦点小组讨论.jpeg",
+                  "定位一致性检验——市场反馈分析.jpeg"
+                ];
+                
+                return (
+                  <motion.div
+                    key={index}
+                    className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-${method.color}-500/20 to-${method.color}-600/20 p-6 border border-${method.color}-400/30 group`}
+                    variants={scaleIn}
+                    transition={{ delay: 0.8 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -8 }}
+                  >
+                    {/* 方法背景图 */}
+                    <div 
+                      className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+                      style={{ 
+                        backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第四章展会主题策划与品牌定位方法/${methodImages[index]})` 
+                      }}
+                    ></div>
+                    {/* 装饰背景 */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
                   
                   <div className="relative z-10 text-center">
                     {/* 步骤编号 */}
@@ -462,7 +491,8 @@ const PlanningMethodsPage: React.FC = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
 
             {/* 检验要点 - 网格布局 */}
@@ -472,14 +502,14 @@ const PlanningMethodsPage: React.FC = () => {
                 variants={slideFromLeft}
               >
                 <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                  <div className="w-3 h-8 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full mr-4"></div>
+                  <div className="w-3 h-8 bg-gradient-to-b from-blue-400 to-amber-400 rounded-full mr-4"></div>
                   检验要点
                 </h3>
                 <div className="space-y-4">
                   {[
-                    { point: "主题是否围绕定位展开", color: "purple" },
-                    { point: "目标观众是否能感受到定位价值", color: "pink" }, 
-                    { point: "主题与定位的关联度是否清晰", color: "indigo" },
+                    { point: "主题是否围绕定位展开", color: "blue" },
+                    { point: "目标观众是否能感受到定位价值", color: "amber" }, 
+                    { point: "主题与定位的关联度是否清晰", color: "teal" },
                     { point: "市场认知是否与预期一致", color: "blue" }
                   ].map((item, index) => (
                     <motion.div
@@ -510,7 +540,7 @@ const PlanningMethodsPage: React.FC = () => {
                     { step: "1", title: "设计检验方案", desc: "确定检验方法和对象", color: "teal" },
                     { step: "2", title: "收集反馈", desc: "获取目标观众意见", color: "emerald" },
                     { step: "3", title: "分析偏差", desc: "识别不一致之处", color: "green" },
-                    { step: "4", title: "优化调整", desc: "改进主题和定位", color: "lime" }
+                    { step: "4", title: "优化调整", desc: "改进主题和定位", color: "green" }
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -538,10 +568,16 @@ const PlanningMethodsPage: React.FC = () => {
               
               {/* 案例一 */}
               <motion.div 
-                className="glass-card p-8 border-l-4 border-green-400"
+                className="relative glass-card p-8 border-l-4 border-green-400 overflow-hidden"
                 variants={slideFromLeft}
               >
-                <h4 className="text-xl font-bold text-green-400 mb-6">案例一：大众化消费电子展会</h4>
+                {/* 案例一背景图 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第四章展会主题策划与品牌定位方法/案例一：大众化消费电子展会.jpeg)` }}
+                ></div>
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold text-green-400 mb-6">案例一：大众化消费电子展会</h4>
                 
                 <div className="grid lg:grid-cols-3 gap-6">
                   <div className="bg-green-500/10 rounded-xl p-6 border border-green-400/20">
@@ -560,7 +596,7 @@ const PlanningMethodsPage: React.FC = () => {
                     <p className="text-white/80 text-sm">"实惠科技，畅享生活"</p>
                   </div>
                   
-                  <div className="bg-purple-500/10 rounded-xl p-6 border border-purple-400/20">
+                  <div className="bg-blue-500/10 rounded-xl p-6 border border-blue-400/20">
                     <h5 className="font-semibold text-white mb-3 flex items-center">
                       <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
                       检验结果
@@ -571,14 +607,21 @@ const PlanningMethodsPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                </div>
               </motion.div>
 
               {/* 案例二 */}
               <motion.div 
-                className="glass-card p-8 border-l-4 border-orange-400"
+                className="relative glass-card p-8 border-l-4 border-orange-400 overflow-hidden"
                 variants={slideFromRight}
               >
-                <h4 className="text-xl font-bold text-orange-400 mb-6">案例二：高端商务消费电子展会调整案例</h4>
+                {/* 案例二背景图 */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
+                  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第四章展会主题策划与品牌定位方法/案例二：高端商务消费电子展会调整案例.jpeg)` }}
+                ></div>
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold text-orange-400 mb-6">案例二：高端商务消费电子展会调整案例</h4>
                 
                 <div className="space-y-6">
                   <div className="grid lg:grid-cols-2 gap-6">
@@ -614,11 +657,12 @@ const PlanningMethodsPage: React.FC = () => {
                         <p className="text-white/80 text-sm mt-1">观众反馈主题更好地契合了高端商务消费电子展会的定位</p>
                       </div>
                       <div>
-                        <span className="text-purple-400 font-medium text-sm">实例参考</span>
+                        <span className="text-blue-400 font-medium text-sm">实例参考</span>
                         <p className="text-white/80 text-sm mt-1">华为企业业务的消费电子产品定位为高端商务场景</p>
                       </div>
                     </div>
                   </div>
+                </div>
                 </div>
               </motion.div>
             </div>
@@ -633,13 +677,13 @@ const PlanningMethodsPage: React.FC = () => {
               to="/course/positioning-process"
               className="group flex items-center space-x-3 glass-card px-6 py-4 hover:shadow-glass-hover transition-all duration-300"
             >
-              <ArrowLeft className="w-5 h-5 text-purple-400 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-5 h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
               <span className="text-white">上一章：展会主题与品牌定位的主要流程</span>
             </Link>
             
             <Link 
               to="/course/case-studies"
-              className="group flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-amber-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <span>下一章：消费电子展主题与品牌定位案例</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

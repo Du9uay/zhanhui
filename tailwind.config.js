@@ -6,26 +6,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // 展会主题色彩系统 - 优化紫色背景适配
+        // 展会主题色彩系统 - 文旅产业专业配色
         base: { 
           50: '#ffffff',    // 纯白文字
           100: '#f1f5f9',   // 亮白文字  
           200: '#e2e8f0',   // 次要文字
           300: '#cbd5e1',   // 静音文字
           400: '#94a3b8',   // 暗淡文字
-          800: 'rgba(139, 92, 246, 0.1)',   // 卡片背景
-          900: 'rgba(139, 92, 246, 0.05)',  // 次要背景
-          950: '#0f0f1e'    // 主背景
+          800: 'rgba(37, 99, 235, 0.08)',   // 卡片背景 - 展会蓝
+          900: 'rgba(30, 64, 175, 0.05)',   // 次要背景 - 深展会蓝
+          950: '#0F172A'    // 主背景 - 深蓝灰
         },
         accent: { 
-          primary: '#a78bfa',    // 浅紫色
-          secondary: '#f9a8d4',  // 浅粉色
-          tertiary: '#67e8f9',   // 浅青色
-          success: '#86efac',    // 浅绿色
-          warning: '#fde047',    // 浅黄色
-          purple: '#c4b5fd',     // 亮紫色
-          pink: '#fbcfe8',       // 亮粉色
-          blue: '#93c5fd'        // 亮蓝色
+          primary: '#3B82F6',    // 展会蓝
+          secondary: '#F59E0B',  // 品牌金
+          tertiary: '#14B8A6',   // 智慧青
+          success: '#10B981',    // 成功绿
+          warning: '#F59E0B',    // 警告金
+          purple: '#7C3AED',     // 文化紫
+          orange: '#FB923C',     // 活力橙
+          blue: '#2563EB'        // 专业蓝
         },
         // 保留原有颜色供兼容
         primary: {
@@ -67,13 +67,13 @@ module.exports = {
         200: '200%',
       },
       boxShadow: {
-        'glass': '0 8px 32px rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(167, 139, 250, 0.1) inset',
-        'glass-hover': '0 12px 48px rgba(139, 92, 246, 0.3), 0 0 0 1px rgba(167, 139, 250, 0.2) inset',
-        'glass-sm': '0 4px 24px rgba(139, 92, 246, 0.15), 0 0 0 1px rgba(167, 139, 250, 0.08) inset',
-        'glass-lg': '0 20px 60px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(167, 139, 250, 0.15) inset',
-        'inner-light': '0 0 0 1px rgba(167, 139, 250, 0.2) inset',
-        'purple-glow': '0 0 30px rgba(167, 139, 250, 0.5)',
-        'pink-glow': '0 0 30px rgba(249, 168, 212, 0.5)',
+        'glass': '0 8px 32px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(59, 130, 246, 0.08) inset',
+        'glass-hover': '0 12px 48px rgba(37, 99, 235, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.15) inset',
+        'glass-sm': '0 4px 24px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(59, 130, 246, 0.06) inset',
+        'glass-lg': '0 20px 60px rgba(37, 99, 235, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.12) inset',
+        'inner-light': '0 0 0 1px rgba(59, 130, 246, 0.15) inset',
+        'blue-glow': '0 0 30px rgba(59, 130, 246, 0.4)',
+        'gold-glow': '0 0 30px rgba(245, 158, 11, 0.4)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

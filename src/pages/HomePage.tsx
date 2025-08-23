@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
       description: '本章节聚焦全球消费电子展发展趋势，学员将了解到消费电子展中5G、智能穿戴等新兴技术的应用趋势，学会分析展会中展现的市场需求与品牌走向，掌握从消费电子展趋势中洞察品牌定位方向的技能，能更好把握消费电子领域的市场动态与品牌发展脉络。',
       icon: TrendingUp,
       path: '/course/consumer-electronics-trends',
-      color: 'from-purple-400 to-pink-400',
+      color: 'from-blue-500 to-blue-600',
       delay: 0.1
     },
     {
@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
       description: '本章节聚焦展会主题与品牌定位的核心概念，学员将学习明确展会主题的构成要素，掌握品牌定位的方法，能分析如何让展会主题契合品牌定位，学会运用相关知识构建独特且有吸引力的展会主题，精准定位品牌，提升在展会策划与品牌建设方面的实际操作技能。',
       icon: Brand,
       path: '/course/theme-brand-concepts',
-      color: 'from-purple-500 to-indigo-400',
+      color: 'from-amber-500 to-amber-600',
       delay: 0.2
     },
     {
@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
       description: '该章节主要讲解展会主题与品牌定位的主要流程，首先要明确展会核心主题，需结合行业趋势等；然后分析品牌目标受众、市场定位等；学员将学到如何精准确定展会主题，清晰把握品牌受众，掌握制定贴合品牌的展会策略，提升展会策划与品牌定位的实际操作技能，为后续展会相关工作打下基础。',
       icon: Strategy,
       path: '/course/positioning-process',
-      color: 'from-pink-400 to-purple-400',
+      color: 'from-teal-500 to-teal-600',
       delay: 0.3
     },
     {
@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
       description: '本章节重点讲解展会主题策划与品牌定位方法。学员将学会结合市场状况策划展会主题，还能掌握品牌定位技巧，如分析目标受众、找出品牌独特卖点，从而明确展会与品牌的特色方向，提升其在市场中的辨识度与竞争力。',
       icon: Presentation,
       path: '/course/planning-methods',
-      color: 'from-indigo-400 to-purple-500',
+      color: 'from-blue-600 to-blue-700',
       delay: 0.4
     },
     {
@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
       description: '本章节是消费电子展主题与品牌定位案例学习，学员能学到剖析消费电子展主题如何贴合市场，掌握品牌在展会上精准定位的方法，像从产品特性、受众角度分析成功案例中主题与定位的关联，提升消费电子展会相关的分析与策划技能。',
       icon: Exhibition,
       path: '/course/case-studies',
-      color: 'from-purple-400 to-indigo-400',
+      color: 'from-orange-500 to-amber-500',
       delay: 0.5
     }
   ];
@@ -119,7 +119,7 @@ const HomePage: React.FC = () => {
           style={{ y }}
         >
           <motion.div 
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mb-6"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-6"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ 
@@ -198,7 +198,7 @@ const HomePage: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <div 
-                  className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-16 h-16 bg-gradient-to-r from-blue-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4"
                 >
                   <Icon className="w-8 h-8 text-white" />
                 </div>
@@ -245,7 +245,7 @@ const HomePage: React.FC = () => {
                     to={module.path}
                     className="group relative glass-card p-8 transition-all duration-300 block h-full hover:shadow-glass-hover"
                   >
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 to-pink-400 rounded-l-2xl"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-amber-400 rounded-l-2xl"></div>
                     <motion.div 
                       className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                       style={{ background: `linear-gradient(135deg, ${module.color.split(' ').join(', ')})` }}
@@ -254,7 +254,7 @@ const HomePage: React.FC = () => {
                     <div className="flex flex-col h-full relative z-10">
                       <div className="flex items-start space-x-4 mb-4">
                         <motion.div 
-                          className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg flex items-center justify-center flex-shrink-0"
+                          className="w-12 h-12 bg-gradient-to-r from-blue-400 to-amber-400 rounded-lg flex items-center justify-center flex-shrink-0"
                           whileHover={{ 
                             scale: 1.2,
                             rotate: 15,

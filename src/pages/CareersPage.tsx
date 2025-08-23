@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Exhibition, Strategy, Presentation, ArrowRight, CheckCircle } from '../components/Icons';
@@ -8,7 +7,7 @@ const CareersPage: React.FC = () => {
     {
       title: '会展策划师',
       icon: Exhibition,
-      iconBg: 'from-purple-400 to-pink-400',
+      iconBg: 'from-blue-500 to-teal-500',
       skills: [
         { name: '展会定位与主题策划', desc: '通过精准的主题和品牌定位，确保展会内容贴合目标受众和市场趋势。', highlight: true },
         { name: '空间设计与动线布局', desc: '通过合理规划展区与动线，提升观众流动效率与整体体验。' },
@@ -21,7 +20,7 @@ const CareersPage: React.FC = () => {
     {
       title: '品牌策划运营专员',
       icon: Strategy,
-      iconBg: 'from-indigo-400 to-purple-400',
+      iconBg: 'from-emerald-500 to-blue-500',
       skills: [
         { name: '品牌定位与主题表达', desc: '将品牌核心价值融入展会主题，实现一体化传播。', highlight: true },
         { name: '新品发布策划执行', desc: '针对新品发布制定创意及落地方案。' },
@@ -34,7 +33,7 @@ const CareersPage: React.FC = () => {
     {
       title: '活动策划',
       icon: Presentation,
-      iconBg: 'from-purple-500 to-indigo-500',
+      iconBg: 'from-blue-500 to-emerald-500',
       skills: [
         { name: '主题定位与活动框架', desc: '从主题入手构建清晰、有吸引力的活动逻辑。', highlight: true },
         { name: '空间体验与互动设计', desc: '设计能有效引发用户积极参与的空间与互动。' },
@@ -57,7 +56,7 @@ const CareersPage: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.div 
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mb-6"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mb-6"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -146,8 +145,8 @@ const CareersPage: React.FC = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-              <div className="w-12 h-12 mx-auto mb-4 bg-purple-400 rounded-xl flex items-center justify-center">
+            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-amber-500/20">
+              <div className="w-12 h-12 mx-auto mb-4 bg-blue-400 rounded-xl flex items-center justify-center">
                 <Exhibition className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-bold text-white mb-2">主题策划能力</h3>
@@ -155,7 +154,7 @@ const CareersPage: React.FC = () => {
             </div>
             
             <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-teal-500/20">
-              <div className="w-12 h-12 mx-auto mb-4 bg-indigo-400 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 mx-auto mb-4 bg-teal-400 rounded-xl flex items-center justify-center">
                 <Strategy className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-bold text-white mb-2">市场分析能力</h3>
@@ -163,7 +162,7 @@ const CareersPage: React.FC = () => {
             </div>
             
             <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-500/20">
-              <div className="w-12 h-12 mx-auto mb-4 bg-purple-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 mx-auto mb-4 bg-blue-500 rounded-xl flex items-center justify-center">
                 <Presentation className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-bold text-white mb-2">执行落地能力</h3>
@@ -174,7 +173,7 @@ const CareersPage: React.FC = () => {
 
         {/* 开启职业生涯 */}
         <motion.div 
-          className="text-center py-16 px-8 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 rounded-3xl border border-white/10"
+          className="text-center py-16 px-8 bg-gradient-to-r from-blue-500/10 via-amber-500/10 to-blue-500/10 rounded-3xl border border-white/10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
@@ -186,7 +185,7 @@ const CareersPage: React.FC = () => {
           <div className="flex justify-center">
             <Link 
               to="/course/consumer-electronics-trends"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               开始学习课程
               <ArrowRight className="w-5 h-5 ml-2" />

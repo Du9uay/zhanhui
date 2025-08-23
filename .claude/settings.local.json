@@ -20,7 +20,11 @@
       "Bash(npm run deploy:*)",
       "Bash(npx gh-pages:*)",
       "Bash(git checkout:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git tag:*)",
+      "Bash(git branch:*)",
+      "Bash(PORT=3001 npm start)",
+      "mcp__serena__execute_shell_command"
     ],
     "deny": []
   }

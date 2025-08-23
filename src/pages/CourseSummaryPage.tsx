@@ -158,9 +158,9 @@ const CourseSummaryPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 to-pink-400 rounded-l-2xl" />
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-amber-400 rounded-l-2xl" />
           <div className="flex items-center mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-amber-400 rounded-2xl flex items-center justify-center mr-6 shadow-lg">
               <Award className="w-8 h-8 text-white" />
             </div>
             <div>
@@ -182,7 +182,7 @@ const CourseSummaryPage: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-lg mr-3 flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-teal-400 rounded-lg mr-3 flex items-center justify-center">
               <span className="text-white font-bold text-sm">1</span>
             </div>
             核心理论与关键方法论
@@ -199,10 +199,10 @@ const CourseSummaryPage: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full -mr-16 -mt-16" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full -mr-16 -mt-16" />
                 
                 <div className="flex items-start mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-amber-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                     <theory.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -225,7 +225,7 @@ const CourseSummaryPage: React.FC = () => {
                       transition={{ duration: 0.3, delay: pointIndex * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0" />
                       <span className="text-white/80 text-sm leading-relaxed">
                         {point}
                       </span>
@@ -245,7 +245,7 @@ const CourseSummaryPage: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-400 rounded-lg mr-3 flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-400 rounded-lg mr-3 flex items-center justify-center">
               <span className="text-white font-bold text-sm">2</span>
             </div>
             独特性或前沿性知识点技能点
@@ -264,7 +264,7 @@ const CourseSummaryPage: React.FC = () => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-green-500/10 to-transparent rounded-full -mr-20 -mt-20" />
                 
                 <div className="flex items-start mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-indigo-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-teal-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
                     <knowledge.icon className="w-7 h-7 text-white" />
                   </div>
                   <div className="flex-1">
@@ -307,7 +307,7 @@ const CourseSummaryPage: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-pink-400 to-purple-500 rounded-lg mr-3 flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-blue-500 rounded-lg mr-3 flex items-center justify-center">
               <span className="text-white font-bold text-sm">3</span>
             </div>
             关键工具操作技能
@@ -342,7 +342,7 @@ const CourseSummaryPage: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-pink-400 to-purple-400 rounded-lg mr-3 flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-blue-400 rounded-lg mr-3 flex items-center justify-center">
               <span className="text-white font-bold text-sm">4</span>
             </div>
             重点学习内容
@@ -371,7 +371,7 @@ const CourseSummaryPage: React.FC = () => {
                       transition={{ duration: 0.3, delay: pointIndex * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <div className="w-2 h-2 bg-gradient-to-r from-amber-400 to-blue-400 rounded-full mt-2 mr-3 flex-shrink-0" />
                       <span className="text-white/90 leading-relaxed">
                         {point}
                       </span>
@@ -391,10 +391,10 @@ const CourseSummaryPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-amber-500/10 to-blue-500/10" />
           
           <motion.div 
-            className="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl relative z-10"
+            className="w-20 h-20 bg-gradient-to-br from-blue-400 to-amber-400 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl relative z-10"
             animate={{ 
               rotate: [0, 10, -10, 0],
               scale: [1, 1.05, 1]
@@ -423,7 +423,7 @@ const CourseSummaryPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-purple-300 mb-1">4</div>
+              <div className="text-3xl font-bold text-blue-300 mb-1">4</div>
               <div className="text-sm text-white/70">核心理论模块</div>
             </motion.div>
             <motion.div 
@@ -447,7 +447,7 @@ const CourseSummaryPage: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-3xl font-bold text-pink-300 mb-1">3</div>
+              <div className="text-3xl font-bold text-amber-300 mb-1">3</div>
               <div className="text-sm text-white/70">重点学习内容</div>
             </motion.div>
           </div>
@@ -469,7 +469,7 @@ const CourseSummaryPage: React.FC = () => {
           
           <Link
             to="/course-test"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-400 to-pink-400 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-400 to-amber-400 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
           >
             开始课堂测试
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />

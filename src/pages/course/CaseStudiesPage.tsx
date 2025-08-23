@@ -107,15 +107,20 @@ const CaseStudiesPage: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="glass-card p-16 text-center relative overflow-hidden">
+            {/* 案例主图背景 */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-40 z-0"
+              style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第五章消费电子展主题与品牌定位案例/消费电子展主题与品牌定位案例-主图.jpeg)` }}
+            ></div>
             {/* 案例图标装饰 */}
-            <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl rotate-12"></div>
-            <div className="absolute top-12 right-12 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-full"></div>
+            <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-amber-500/20 rounded-2xl rotate-12"></div>
+            <div className="absolute top-12 right-12 w-12 h-12 bg-gradient-to-br from-blue-500/20 to-teal-500/20 rounded-full"></div>
             <div className="absolute bottom-8 left-16 w-14 h-14 bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-lg -rotate-12"></div>
             <div className="absolute bottom-12 right-8 w-10 h-10 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full"></div>
             
             <div className="relative z-10">
               <motion.div 
-                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-400 via-pink-400 to-indigo-400 rounded-3xl mb-8 shadow-2xl"
+                className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 via-amber-400 to-teal-400 rounded-3xl mb-8 shadow-2xl"
                 initial={{ rotate: -10, scale: 0.8 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, delay: 0.4 }}
@@ -127,7 +132,7 @@ const CaseStudiesPage: React.FC = () => {
               <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
                 消费电子展主题与品牌定位案例
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-6"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-amber-400 rounded-full mx-auto mb-6"></div>
               <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
                 本章节是消费电子展主题与品牌定位案例学习，学员能学到剖析消费电子展主题如何贴合市场，掌握品牌在展会上精准定位的方法，像从产品特性、受众角度分析成功案例中主题与定位的关联，提升消费电子展会相关的分析与策划技能。
               </p>
@@ -147,9 +152,9 @@ const CaseStudiesPage: React.FC = () => {
             <div className="grid lg:grid-cols-12 gap-8">
               {/* 左侧故事引导 */}
               <div className="lg:col-span-4">
-                <div className="sticky top-8 glass-card p-8 border-l-4 border-purple-400">
+                <div className="sticky top-8 glass-card p-8 border-l-4 border-blue-400">
                   <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mr-4">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-amber-400 rounded-2xl flex items-center justify-center mr-4">
                       <BookOpen className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl font-bold text-white">01</div>
@@ -168,12 +173,12 @@ const CaseStudiesPage: React.FC = () => {
                   variants={cascadeIn}
                 >
                   <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                    <Target className="w-8 h-8 text-purple-400 mr-4" />
+                    <Target className="w-8 h-8 text-blue-400 mr-4" />
                     学习目标与方法
                   </h3>
                   
                   <div className="space-y-6">
-                    <div className="bg-gradient-to-r from-purple-500/10 to-indigo-500/10 rounded-2xl p-6 border border-purple-400/30">
+                    <div className="bg-gradient-to-r from-blue-500/10 to-teal-500/10 rounded-2xl p-6 border border-blue-400/30">
                       <h4 className="font-bold text-white mb-4">核心学习目标</h4>
                       <div className="grid md:grid-cols-2 gap-4">
                         {[
@@ -205,7 +210,7 @@ const CaseStudiesPage: React.FC = () => {
                         {[
                           { step: "背景分析", desc: "了解案例发生的市场环境和条件", color: "green" },
                           { step: "策略解析", desc: "剖析主题设计和定位策略的思路", color: "blue" },
-                          { step: "执行评估", desc: "评价实施过程和最终效果", color: "purple" },
+                          { step: "执行评估", desc: "评价实施过程和最终效果", color: "blue" },
                           { step: "经验总结", desc: "提炼可复制的成功经验和教训", color: "orange" }
                         ].map((step, index) => (
                           <div key={index} className="flex items-center space-x-4">
@@ -229,16 +234,16 @@ const CaseStudiesPage: React.FC = () => {
           {/* 成功案例分析 - 故事叙述风格 */}
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl mb-6"
-                whileHover={{ rotate: 10 }}
-              >
-                <CheckCircle className="w-8 h-8 text-white" />
-              </motion.div>
-              <h2 className="text-3xl font-bold text-white mb-4">成功案例深度解析</h2>
-              <p className="text-white/70 max-w-3xl mx-auto">
-                通过分析业界标杆案例，理解优秀的主题策划与品牌定位是如何协同工作的
-              </p>
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl mb-6"
+                  whileHover={{ rotate: 10 }}
+                >
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold text-white mb-4">成功案例深度解析</h2>
+                <p className="text-white/70 max-w-3xl mx-auto">
+                  通过分析业界标杆案例，理解优秀的主题策划与品牌定位是如何协同工作的
+                </p>
             </div>
 
             {/* AR眼镜品牌成功案例 */}
@@ -246,10 +251,10 @@ const CaseStudiesPage: React.FC = () => {
               className="glass-card p-8 mb-12 border-l-4 border-green-400"
               variants={slideInFromLeft}
             >
-              <h3 className="text-2xl font-bold text-green-400 mb-8 flex items-center">
-                <div className="w-3 h-12 bg-green-400 rounded-full mr-4"></div>
-                案例一："无缝连接现实与数字世界" - AR眼镜品牌的完美融合
-              </h3>
+                <h3 className="text-2xl font-bold text-green-400 mb-8 flex items-center">
+                  <div className="w-3 h-12 bg-green-400 rounded-full mr-4"></div>
+                  案例一："无缝连接现实与数字世界" - AR眼镜品牌的完美融合
+                </h3>
               
               <div className="space-y-8">
                 {/* 背景介绍 */}
@@ -274,6 +279,7 @@ const CaseStudiesPage: React.FC = () => {
                       {
                         title: "AR游戏体验区",
                         color: "green",
+                        image: "AR游戏体验区.jpeg",
                         features: [
                           "观众通过AR眼镜进入虚拟游戏场景",
                           "与现实环境中的物体进行互动",
@@ -284,6 +290,7 @@ const CaseStudiesPage: React.FC = () => {
                       {
                         title: "AR购物体验区", 
                         color: "blue",
+                        image: "AR购物体验区.jpeg",
                         features: [
                           "用AR眼镜查看虚拟商品",
                           "商品在现实环境中的摆放效果",
@@ -293,7 +300,8 @@ const CaseStudiesPage: React.FC = () => {
                       },
                       {
                         title: "AR旅游体验区",
-                        color: "purple", 
+                        color: "blue", 
+                        image: "AR旅游体验区.jpeg",
                         features: [
                           "虚拟旅游景点体验",
                           "巴黎埃菲尔铁塔、北京故宫等",
@@ -304,11 +312,19 @@ const CaseStudiesPage: React.FC = () => {
                     ].map((area, index) => (
                       <motion.div
                         key={index}
-                        className={`bg-${area.color}-500/10 rounded-2xl p-6 border border-${area.color}-400/30`}
+                        className={`relative bg-${area.color}-500/10 rounded-2xl p-6 border border-${area.color}-400/30 overflow-hidden`}
                         variants={cascadeIn}
                         transition={{ delay: 0.6 + index * 0.2 }}
                         whileHover={{ y: -5 }}
                       >
+                        {/* AR体验区背景图 */}
+                        <div 
+                          className="absolute inset-0 bg-cover bg-center opacity-50 z-0"
+                          style={{ 
+                            backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第五章消费电子展主题与品牌定位案例/${area.image})` 
+                          }}
+                        ></div>
+                        <div className="relative z-10">
                         <h5 className={`font-medium text-${area.color}-400 mb-4 text-lg`}>{area.title}</h5>
                         <ul className="space-y-2">
                           {area.features.map((feature, featureIndex) => (
@@ -318,13 +334,20 @@ const CaseStudiesPage: React.FC = () => {
                             </li>
                           ))}
                         </ul>
+                        </div>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
                 {/* 成功效果分析 */}
-                <div className="bg-green-500/10 rounded-2xl p-8 border border-green-400/30">
+                <div className="relative bg-green-500/10 rounded-2xl p-8 border border-green-400/30 overflow-hidden">
+                  {/* AR眼镜案例背景图 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+                    style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第五章消费电子展主题与品牌定位案例/AR眼镜案例背景.jpeg)` }}
+                  ></div>
+                  <div className="relative z-10">
                   <h4 className="font-medium text-green-400 mb-6 text-xl">成功效果分析</h4>
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
@@ -367,6 +390,7 @@ const CaseStudiesPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
+                </div>
               </div>
             </motion.div>
           </motion.section>
@@ -374,16 +398,16 @@ const CaseStudiesPage: React.FC = () => {
           {/* 失败案例警示 - 对比展示 */}
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
-              <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-400 to-orange-400 rounded-2xl mb-6"
-                whileHover={{ rotate: -10 }}
-              >
-                <AlertTriangle className="w-8 h-8 text-white" />
-              </motion.div>
-              <h2 className="text-3xl font-bold text-white mb-4">失败案例警示分析</h2>
-              <p className="text-white/70 max-w-3xl mx-auto">
-                从失败案例中汲取教训，避免在实践中重蹈覆辙
-              </p>
+                <motion.div 
+                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-400 to-orange-400 rounded-2xl mb-6"
+                  whileHover={{ rotate: -10 }}
+                >
+                  <AlertTriangle className="w-8 h-8 text-white" />
+                </motion.div>
+                <h2 className="text-3xl font-bold text-white mb-4">失败案例警示分析</h2>
+                <p className="text-white/70 max-w-3xl mx-auto">
+                  从失败案例中汲取教训，避免在实践中重蹈覆辙
+                </p>
             </div>
 
             {/* 过度技术化主题案例 */}
@@ -414,8 +438,14 @@ const CaseStudiesPage: React.FC = () => {
                   
                   <div className="space-y-6">
                     {/* 量子计算案例 */}
-                    <div className="bg-red-500/10 rounded-2xl p-6 border border-red-400/30">
-                      <h5 className="font-medium text-red-400 mb-4">案例A："超高速量子计算架构解析"主题</h5>
+                    <div className="relative bg-red-500/10 rounded-2xl p-6 border border-red-400/30 overflow-hidden">
+                      {/* 案例A背景图 */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+                        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第五章消费电子展主题与品牌定位案例/失败案例警示分析——案例A：超高速量子计算架构解析主题.jpeg)` }}
+                      ></div>
+                      <div className="relative z-10">
+                        <h5 className="font-medium text-red-400 mb-4">案例A："超高速量子计算架构解析"主题</h5>
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
                           <h6 className="font-medium text-white mb-3">问题表现</h6>
@@ -450,11 +480,18 @@ const CaseStudiesPage: React.FC = () => {
                           </ul>
                         </div>
                       </div>
+                      </div>
                     </div>
 
                     {/* 量子通信案例 */}
-                    <div className="bg-orange-500/10 rounded-2xl p-6 border border-orange-400/30">
-                      <h5 className="font-medium text-orange-400 mb-4">案例B："量子通信协议深度剖析"展区</h5>
+                    <div className="relative bg-orange-500/10 rounded-2xl p-6 border border-orange-400/30 overflow-hidden">
+                      {/* 案例B背景图 */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+                        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第五章消费电子展主题与品牌定位案例/失败案例警示分析——案例B：量子通信协议深度剖析展区.jpg)` }}
+                      ></div>
+                      <div className="relative z-10">
+                        <h5 className="font-medium text-orange-400 mb-4">案例B："量子通信协议深度剖析"展区</h5>
                       <div className="space-y-4">
                         <div>
                           <h6 className="font-medium text-white mb-2">具体情况</h6>
@@ -479,6 +516,7 @@ const CaseStudiesPage: React.FC = () => {
                             ))}
                           </div>
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -546,13 +584,13 @@ const CaseStudiesPage: React.FC = () => {
               to="/course/planning-methods"
               className="group flex items-center space-x-3 glass-card px-6 py-4 hover:shadow-glass-hover transition-all duration-300"
             >
-              <ArrowLeft className="w-5 h-5 text-purple-400 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-5 h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
               <span className="text-white">上一章：展会主题策划与品牌定位方法</span>
             </Link>
             
             <Link 
               to="/course-summary"
-              className="group flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-amber-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <span>进入课程总结</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

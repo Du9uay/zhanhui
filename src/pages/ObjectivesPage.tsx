@@ -40,7 +40,7 @@ const ObjectivesPage: React.FC = () => {
         '掌握"高端定制化消费电子解决方案提供商"等定位的重要意义'
       ],
       icon: Target,
-      color: 'from-purple-500 to-indigo-400',
+      color: 'from-accent-secondary to-accent-tertiary',
       backInfo: '理解后能帮助学员认识到品牌定位对展会脱颖而出的关键作用。'
     },
     {
@@ -51,7 +51,7 @@ const ObjectivesPage: React.FC = () => {
         '能够据此调整主题和定位的方法，具备科学分析展会状况的能力'
       ],
       icon: Shield,
-      color: 'from-indigo-400 to-purple-500',
+      color: 'from-accent-tertiary to-accent-primary',
       backInfo: '掌握运用SWOT分析法全面分析展会情况，并据此调整主题和定位的方法，具备科学分析展会状况的能力。'
     },
     {
@@ -62,7 +62,7 @@ const ObjectivesPage: React.FC = () => {
         '具备及时发现偏差并调整，保证展会各方面协调一致的能力'
       ],
       icon: CheckCircle,
-      color: 'from-pink-400 to-purple-400',
+      color: 'from-amber-400 to-accent-primary',
       backInfo: '具备该能力可及时发现偏差并调整，保证展会各方面协调一致。'
     },
     {
@@ -320,7 +320,7 @@ const ObjectivesPage: React.FC = () => {
             animate={{ 
               background: [
                 "radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.3) 0%, transparent 60%)",
-                "radial-gradient(circle at 70% 40%, rgba(168, 85, 247, 0.3) 0%, transparent 60%)",
+                "radial-gradient(circle at 70% 40%, rgba(245, 158, 11, 0.3) 0%, transparent 60%)",
                 "radial-gradient(circle at 50% 70%, rgba(34, 197, 94, 0.3) 0%, transparent 60%)",
                 "radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.3) 0%, transparent 60%)"
               ]

@@ -45,25 +45,25 @@ const PositioningProcessPage: React.FC = () => {
       number: "01",
       title: "目标观众调研",
       icon: Users,
-      color: "purple",
-      bgGradient: "from-purple-500/20 to-purple-600/20",
-      borderColor: "border-purple-400/30"
+      color: "blue",
+      bgGradient: "from-blue-500/20 to-blue-600/20",
+      borderColor: "border-blue-400/30"
     },
     {
       number: "02", 
       title: "竞争与差异化分析",
       icon: Eye,
-      color: "pink",
-      bgGradient: "from-pink-500/20 to-pink-600/20", 
-      borderColor: "border-pink-400/30"
+      color: "amber",
+      bgGradient: "from-amber-500/20 to-amber-600/20", 
+      borderColor: "border-amber-400/30"
     },
     {
       number: "03",
       title: "核心主题构思", 
       icon: Target,
-      color: "indigo",
-      bgGradient: "from-indigo-500/20 to-indigo-600/20",
-      borderColor: "border-indigo-400/30"
+      color: "teal",
+      bgGradient: "from-teal-500/20 to-teal-600/20",
+      borderColor: "border-teal-400/30"
     },
     {
       number: "04",
@@ -109,13 +109,19 @@ const PositioningProcessPage: React.FC = () => {
 
         {/* 主标题 - 流程导向设计 */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-16 relative overflow-hidden rounded-3xl p-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          {/* 主流程背景图 */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-40 z-0"
+            style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第三章展会主题与品牌定位的主要流程/展会主题与品牌定位的主要流程.jpg)` }}
+          ></div>
+          <div className="relative z-10">
           <motion.div 
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-pink-400 to-purple-400 rounded-3xl mb-8 shadow-2xl"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-amber-400 to-blue-400 rounded-3xl mb-8 shadow-2xl"
             initial={{ rotate: -10 }}
             animate={{ rotate: 0 }}
             transition={{ type: "spring", stiffness: 200 }}
@@ -125,9 +131,10 @@ const PositioningProcessPage: React.FC = () => {
           <h1 className="text-5xl font-bold text-white mb-6">
             展会主题与品牌定位的主要流程
           </h1>
-          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            该章节主要讲解展会主题与品牌定位的主要流程，首先要明确展会核心主题，需结合行业趋势等；然后分析品牌目标受众、市场定位等。
-          </p>
+            <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+              该章节主要讲解展会主题与品牌定位的主要流程，首先要明确展会核心主题，需结合行业趋势等；然后分析品牌目标受众、市场定位等。
+            </p>
+          </div>
         </motion.div>
 
         {/* 流程概览 - 圆形流程图 */}
@@ -194,10 +201,10 @@ const PositioningProcessPage: React.FC = () => {
               <div className="lg:col-span-3">
                 <div className="sticky top-8">
                   <div className="glass-card p-6 text-center">
-                    <div className="w-20 h-20 bg-gradient-to-r from-purple-400 to-purple-500 rounded-3xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-400 to-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-4">
                       <Users className="w-10 h-10 text-white" />
                     </div>
-                    <div className="text-3xl font-bold text-purple-400 mb-2">01</div>
+                    <div className="text-3xl font-bold text-blue-400 mb-2">01</div>
                     <h3 className="text-xl font-bold text-white">目标观众调研</h3>
                   </div>
                 </div>
@@ -207,15 +214,15 @@ const PositioningProcessPage: React.FC = () => {
               <div className="lg:col-span-9 space-y-8">
                 {/* 重要性分析 */}
                 <motion.div 
-                  className="glass-card p-8 border-l-4 border-purple-400"
+                  className="glass-card p-8 border-l-4 border-blue-400"
                   variants={itemVariants}
                 >
                   <div className="flex items-start mb-6">
-                    <Zap className="w-8 h-8 text-purple-400 mr-4 mt-1" />
+                    <Zap className="w-8 h-8 text-blue-400 mr-4 mt-1" />
                     <div>
                       <h3 className="text-2xl font-bold text-white mb-3">重要性分析</h3>
                       <p className="text-white/80 leading-relaxed">
-                        目标观众调研是确定展会主题和品牌定位的<span className="text-purple-400 font-bold">基础环节</span>。只有深入了解目标观众的需求、兴趣、行为等，才能精准把握市场方向，从而制定合适的主题和定位。
+                        目标观众调研是确定展会主题和品牌定位的<span className="text-blue-400 font-bold">基础环节</span>。只有深入了解目标观众的需求、兴趣、行为等，才能精准把握市场方向，从而制定合适的主题和定位。
                       </p>
                     </div>
                   </div>
@@ -229,14 +236,14 @@ const PositioningProcessPage: React.FC = () => {
                     whileHover={{ y: -5 }}
                   >
                     <div className="flex items-center mb-4">
-                      <Search className="w-6 h-6 text-purple-400 mr-3" />
+                      <Search className="w-6 h-6 text-blue-400 mr-3" />
                       <h4 className="font-bold text-white">调研方法</h4>
                     </div>
                     <div className="space-y-3">
                       {[
-                        { color: "purple", method: "发放在线问卷调研" },
-                        { color: "pink", method: "开展线下访谈" },
-                        { color: "indigo", method: "焦点小组讨论" },
+                        { color: "blue", method: "发放在线问卷调研" },
+                        { color: "amber", method: "开展线下访谈" },
+                        { color: "teal", method: "焦点小组讨论" },
                         { color: "emerald", method: "用户行为数据分析" }
                       ].map((item, index) => (
                         <div key={index} className="flex items-center p-3 bg-white/5 rounded-lg backdrop-blur-sm">
@@ -253,7 +260,7 @@ const PositioningProcessPage: React.FC = () => {
                     whileHover={{ y: -5 }}
                   >
                     <div className="flex items-center mb-4">
-                      <Target className="w-6 h-6 text-purple-400 mr-3" />
+                      <Target className="w-6 h-6 text-blue-400 mr-3" />
                       <h4 className="font-bold text-white">调研内容</h4>
                     </div>
                     <div className="space-y-3">
@@ -261,7 +268,7 @@ const PositioningProcessPage: React.FC = () => {
                         { color: "green", content: "观众需求与兴趣偏好" },
                         { color: "blue", content: "参展动机与期望" },
                         { color: "orange", content: "消费行为特征" },
-                        { color: "pink", content: "媒体接触习惯" }
+                        { color: "amber", content: "媒体接触习惯" }
                       ].map((item, index) => (
                         <div key={index} className="flex items-center p-3 bg-white/5 rounded-lg backdrop-blur-sm">
                           <div className={`w-3 h-3 bg-${item.color}-400 rounded-full mr-3`}></div>
@@ -274,12 +281,17 @@ const PositioningProcessPage: React.FC = () => {
 
                 {/* 调研案例 - 特色展示卡片 */}
                 <motion.div 
-                  className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-purple-500/10 to-indigo-500/10 p-8 border border-purple-400/30"
+                  className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 p-8 border border-blue-400/30"
                   variants={itemVariants}
                 >
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+                  {/* 案例背景图 */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+                    style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgrounds/第三章展会主题与品牌定位的主要流程/2024年消费电子展.jpeg)` }}
+                  ></div>
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
                   <div className="relative z-10">
-                    <h4 className="text-xl font-bold text-purple-400 mb-6">调研案例：2024年消费电子展</h4>
+                    <h4 className="text-xl font-bold text-blue-400 mb-6">调研案例：2024年消费电子展</h4>
                     
                     <div className="grid md:grid-cols-3 gap-6">
                       <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
@@ -312,7 +324,7 @@ const PositioningProcessPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
               <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-pink-400 to-pink-500 rounded-2xl mb-4"
+                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl mb-4"
                 whileHover={{ rotate: 5 }}
               >
                 <Eye className="w-8 h-8 text-white" />
@@ -326,7 +338,7 @@ const PositioningProcessPage: React.FC = () => {
               {[
                 { step: "1", title: "调研竞争对手", desc: "展会主题和定位", color: "red", icon: Search },
                 { step: "2", title: "分析市场空白", desc: "未满足需求", color: "orange", icon: Target },
-                { step: "3", title: "确定自身优势", desc: "独特竞争力", color: "yellow", icon: Zap },
+                { step: "3", title: "确定自身优势", desc: "独特竞争力", color: "amber", icon: Zap },
                 { step: "4", title: "制定差异化策略", desc: "战略规划", color: "green", icon: CheckCircle }
               ].map((item, index) => (
                 <motion.div
@@ -400,7 +412,7 @@ const PositioningProcessPage: React.FC = () => {
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
               <motion.div 
-                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-2xl mb-4"
+                className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-400 rounded-2xl mb-4"
                 whileHover={{ scale: 1.1 }}
               >
                 <Target className="w-8 h-8 text-white" />
@@ -416,14 +428,14 @@ const PositioningProcessPage: React.FC = () => {
                   num: "1", 
                   title: "贴合观众需求", 
                   desc: "呼应目标观众关注的热点",
-                  color: "purple",
+                  color: "blue",
                   icon: Users
                 },
                 { 
                   num: "2", 
                   title: "突出自身优势", 
                   desc: "体现展会独特价值",
-                  color: "indigo",
+                  color: "teal",
                   icon: Zap
                 },
                 { 
@@ -457,7 +469,7 @@ const PositioningProcessPage: React.FC = () => {
               
               <div className="relative">
                 {/* 时间线 */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-400 to-purple-400 rounded-full transform -translate-x-1/2"></div>
+                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-teal-400 to-blue-400 rounded-full transform -translate-x-1/2"></div>
                 
                 <div className="space-y-12">
                   {/* 5G案例 */}
@@ -466,26 +478,36 @@ const PositioningProcessPage: React.FC = () => {
                     variants={itemVariants}
                   >
                     <div className="w-1/2 pr-8">
-                      <div className="glass-card p-6 ml-auto max-w-lg">
-                        <h4 className="text-lg font-bold text-indigo-400 mb-3">5G技术主题构思</h4>
-                        <div className="space-y-3">
-                          <div>
-                            <span className="font-semibold text-white text-sm">构思背景：</span>
-                            <p className="text-white/70 text-sm">观众关注5G在消费电子的应用，展会在5G技术展示有优势</p>
-                          </div>
-                          <div>
-                            <span className="font-semibold text-white text-sm">确定主题：</span>
-                            <p className="text-indigo-400 font-bold">"5G引领消费电子新变革"</p>
+                      <div className="glass-card p-6 ml-auto max-w-lg h-64 flex flex-col justify-center">
+                        <div>
+                          <h4 className="text-lg font-bold text-teal-400 mb-3">5G技术主题构思</h4>
+                          <div className="space-y-3">
+                            <div>
+                              <span className="font-semibold text-white text-sm">构思背景：</span>
+                              <p className="text-white/70 text-sm">观众关注5G在消费电子的应用，展会在5G技术展示有优势</p>
+                            </div>
+                            <div>
+                              <span className="font-semibold text-white text-sm">确定主题：</span>
+                              <p className="text-teal-400 font-bold">"5G引领消费电子新变革"</p>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="relative z-10 w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center">
+                    <div className="relative z-10 w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center">
                       <Zap className="w-6 h-6 text-white" />
                     </div>
                     
-                    <div className="w-1/2 pl-8"></div>
+                    <div className="w-1/2 pl-8">
+                      <div className="max-w-lg">
+                        <img 
+                          src={`${process.env.PUBLIC_URL}/images/backgrounds/第三章展会主题与品牌定位的主要流程/5G技术主题构思.png`}
+                          alt="5G技术主题构思"
+                          className="w-full h-64 object-cover rounded-2xl shadow-xl"
+                        />
+                      </div>
+                    </div>
                   </motion.div>
 
                   {/* 6G案例 */}
@@ -493,23 +515,33 @@ const PositioningProcessPage: React.FC = () => {
                     className="flex items-center"
                     variants={itemVariants}
                   >
-                    <div className="w-1/2 pr-8"></div>
+                    <div className="w-1/2 pr-8">
+                      <div className="max-w-lg ml-auto">
+                        <img 
+                          src={`${process.env.PUBLIC_URL}/images/backgrounds/第三章展会主题与品牌定位的主要流程/6G技术前瞻主题.png`}
+                          alt="6G技术前瞻主题"
+                          className="w-full h-64 object-cover rounded-2xl shadow-xl"
+                        />
+                      </div>
+                    </div>
                     
-                    <div className="relative z-10 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                    <div className="relative z-10 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
                       <Target className="w-6 h-6 text-white" />
                     </div>
                     
                     <div className="w-1/2 pl-8">
-                      <div className="glass-card p-6 max-w-lg">
-                        <h4 className="text-lg font-bold text-purple-400 mb-3">6G技术前瞻主题</h4>
-                        <div className="space-y-3">
-                          <div>
-                            <span className="font-semibold text-white text-sm">调研发现：</span>
-                            <p className="text-white/70 text-sm">观众对6G潜在应用感兴趣，展会在6G研发有合作资源</p>
-                          </div>
-                          <div>
-                            <span className="font-semibold text-white text-sm">主题构思：</span>
-                            <p className="text-purple-400 font-bold">"6G开启消费电子未来之门"</p>
+                      <div className="glass-card p-6 max-w-lg h-64 flex flex-col justify-center">
+                        <div>
+                          <h4 className="text-lg font-bold text-blue-400 mb-3">6G技术前瞻主题</h4>
+                          <div className="space-y-3">
+                            <div>
+                              <span className="font-semibold text-white text-sm">调研发现：</span>
+                              <p className="text-white/70 text-sm">观众对6G潜在应用感兴趣，展会在6G研发有合作资源</p>
+                            </div>
+                            <div>
+                              <span className="font-semibold text-white text-sm">主题构思：</span>
+                              <p className="text-blue-400 font-bold">"6G开启消费电子未来之门"</p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -568,7 +600,7 @@ const PositioningProcessPage: React.FC = () => {
                 variants={itemVariants}
               >
                 <h4 className="text-xl font-bold text-blue-400 mb-6">5G技术展会定位陈述</h4>
-                <div className="bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-2xl p-6 mb-6 border border-blue-400/30">
+                <div className="bg-gradient-to-r from-blue-500/10 to-teal-500/10 rounded-2xl p-6 mb-6 border border-blue-400/30">
                   <blockquote className="text-lg text-white/90 italic leading-relaxed">
                     "我们是专注于为科技爱好者和行业从业者提供5G引领下消费电子新技术、新产品展示与交流的平台，致力于推动5G技术在消费电子领域的深度应用和创新发展"
                   </blockquote>
@@ -592,18 +624,18 @@ const PositioningProcessPage: React.FC = () => {
 
               {/* 中小企业服务 */}
               <motion.div 
-                className="glass-card p-8 border-l-4 border-purple-400"
+                className="glass-card p-8 border-l-4 border-blue-400"
                 variants={itemVariants}
               >
-                <h4 className="text-xl font-bold text-purple-400 mb-6">中小企业服务定位陈述</h4>
-                <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-6 mb-4 border border-purple-400/30">
+                <h4 className="text-xl font-bold text-blue-400 mb-6">中小企业服务定位陈述</h4>
+                <div className="bg-gradient-to-r from-blue-500/10 to-amber-500/10 rounded-2xl p-6 mb-4 border border-blue-400/30">
                   <blockquote className="text-lg text-white/90 italic leading-relaxed">
                     "我们是面向全球中小企业的消费电子创新展示与合作平台，凭借我们丰富的行业资源和专业的服务团队，为中小企业提供展示创新产品、获取投资、拓展合作渠道的全方位支持，助力中小企业在消费电子领域实现快速发展"
                   </blockquote>
                 </div>
                 
-                <div className="bg-purple-500/10 rounded-xl p-4">
-                  <span className="text-purple-400 font-semibold text-sm">实例参考：</span>
+                <div className="bg-blue-500/10 rounded-xl p-4">
+                  <span className="text-blue-400 font-semibold text-sm">实例参考：</span>
                   <span className="text-white/70 text-sm ml-1">阿里巴巴旗下的1688平台为中小企业提供消费电子产品的展示和合作机会，体现了为中小企业服务的定位。</span>
                 </div>
               </motion.div>
@@ -619,13 +651,13 @@ const PositioningProcessPage: React.FC = () => {
               to="/course/theme-brand-concepts"
               className="group flex items-center space-x-3 glass-card px-6 py-4 hover:shadow-glass-hover transition-all duration-300"
             >
-              <ArrowLeft className="w-5 h-5 text-purple-400 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-5 h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
               <span className="text-white">上一章：展会主题与品牌定位的核心概念</span>
             </Link>
             
             <Link 
               to="/course/planning-methods"
-              className="group flex items-center space-x-3 bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="group flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-amber-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <span>下一章：展会主题策划与品牌定位方法</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
