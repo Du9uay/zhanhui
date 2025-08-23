@@ -25,7 +25,9 @@
       "Bash(git branch:*)",
       "Bash(PORT=3001 npm start)",
       "mcp__serena__execute_shell_command",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   }

@@ -1,0 +1,15 @@
+{
+  "short_name": "展会主题与品牌定位",
+  "name": "展会主题与品牌定位教学网站",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563EB",
+  "background_color": "#0F172A"
+}
