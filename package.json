@@ -2,7 +2,7 @@
   "name": "exhibition-theme-positioning",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://du9uay.github.io",
+  "homepage": "https://du9uay.github.io/zhanhui",
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
