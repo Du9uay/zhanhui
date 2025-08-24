@@ -29,6 +29,9 @@
       "Bash(node:*)",
       "Bash(cat:*)"
     ],
-    "deny": []
+    "deny": [],
+    "additionalDirectories": [
+      "/Users/apple/Downloads"
+    ]
   }
 }
