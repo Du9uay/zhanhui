@@ -241,7 +241,7 @@ const ConsumerElectronicsTrendsPage: React.FC = () => {
             </div>
             
             {/* 数字人视频播放器 - 绝对定位在右侧 */}
-            <div className="absolute top-16 -right-32 z-20">
+            <div className="absolute top-16 -right-48 z-20">
               <AnimatePresence>
                 <motion.div
                   initial={{ opacity: 0, y: -20, scale: 0.95 }}
