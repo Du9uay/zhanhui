@@ -27,7 +27,11 @@
       "mcp__serena__execute_shell_command",
       "Bash(cp:*)",
       "Bash(node:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)"
     ],
     "deny": [],
     "additionalDirectories": [
