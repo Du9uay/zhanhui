@@ -285,7 +285,7 @@ const ThemeBrandConceptsPage: React.FC = () => {
             {/* 展会主题的定义与要素 - 数字人视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVyllYLzc3T.mp4"
-              position={{ top: 100, right: '-16rem' }}
+              position={{ top: 100, right: '-8rem' }}
             />
           </motion.section>
 
@@ -426,7 +426,7 @@ const ThemeBrandConceptsPage: React.FC = () => {
             {/* 品牌定位的概念 - 数字人视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylkr4DVTu.mp4"
-              position={{ top: 100, right: '-16rem' }}
+              position={{ top: 100, right: '-8rem' }}
             />
           </motion.section>
 
