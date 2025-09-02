@@ -171,7 +171,6 @@ const DigitalAvatarPlayer: React.FC<DigitalAvatarPlayerProps> = ({
                       onEnded={handleVideoEnd}
                       onPause={() => setIsVideoPlaying(false)}
                       onPlay={() => setIsVideoPlaying(true)}
-                      muted
                       controls
                       controlsList="nodownload noplaybackrate"
                       playsInline
