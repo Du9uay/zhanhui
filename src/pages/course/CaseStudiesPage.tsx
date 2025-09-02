@@ -398,7 +398,7 @@ const CaseStudiesPage: React.FC = () => {
             {/* 正向案例：某AR眼镜品牌视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykIwBdDtu.mp4"
-              position={{ top: 280, right: '-8rem' }}
+              position={{ top: 280, right: '-10rem' }}
             />
           </motion.section>
 
@@ -584,7 +584,7 @@ const CaseStudiesPage: React.FC = () => {
             {/* 过度技术化主题导致的观众认知壁垒视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykGYst1Ih.mp4"
-              position={{ top: 460, right: '-8rem' }}
+              position={{ top: 460, right: '-10rem' }}
             />
           </motion.section>
 
