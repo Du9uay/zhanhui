@@ -196,7 +196,7 @@ const PositioningProcessPage: React.FC = () => {
           className="space-y-20"
         >
           {/* 目标观众调研 - 左右布局 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="grid lg:grid-cols-12 gap-8">
               {/* 左侧步骤指示器 */}
               <div className="lg:col-span-3">
@@ -322,12 +322,12 @@ const PositioningProcessPage: React.FC = () => {
             {/* 目标观众调研视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylcOYSWrJ.mp4"
-              position={{ top: 60, right: '-16rem' }}
+              position={{ top: 60, right: '-8rem' }}
             />
           </motion.section>
 
           {/* 竞争与差异化分析 - 流程图式布局 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="text-center mb-12">
               <motion.div 
                 className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-amber-500 rounded-2xl mb-4"
@@ -415,12 +415,12 @@ const PositioningProcessPage: React.FC = () => {
             {/* 展会竞争与差异化分析视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylg1eChFj.mp4"
-              position={{ top: 60, right: '-16rem' }}
+              position={{ top: 60, right: '-8rem' }}
             />
           </motion.section>
 
           {/* 核心主题构思 - 创意展示 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="text-center mb-12">
               <motion.div 
                 className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-400 rounded-2xl mb-4"
@@ -564,12 +564,12 @@ const PositioningProcessPage: React.FC = () => {
             {/* 核心主题构思视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylbdJNfFS.mp4"
-              position={{ top: 60, right: '-16rem' }}
+              position={{ top: 60, right: '-8rem' }}
             />
           </motion.section>
 
           {/* 品牌定位陈述撰写 - 卡片矩阵设计 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="text-center mb-12">
               <motion.div 
                 className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-2xl mb-4"
@@ -659,7 +659,7 @@ const PositioningProcessPage: React.FC = () => {
             {/* 品牌定位陈述撰写视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylek4v7VE.mp4"
-              position={{ top: 60, right: '-16rem' }}
+              position={{ top: 60, right: '-8rem' }}
             />
           </motion.section>
 

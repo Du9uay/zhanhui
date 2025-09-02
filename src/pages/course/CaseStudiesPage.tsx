@@ -233,7 +233,7 @@ const CaseStudiesPage: React.FC = () => {
           </motion.section>
 
           {/* 成功案例分析 - 故事叙述风格 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="text-center mb-12">
                 <motion.div 
                   className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl mb-6"
@@ -398,12 +398,12 @@ const CaseStudiesPage: React.FC = () => {
             {/* 正向案例：某AR眼镜品牌视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykIwBdDtu.mp4"
-              position={{ top: 280, right: '-16rem' }}
+              position={{ top: 280, right: '-8rem' }}
             />
           </motion.section>
 
           {/* 失败案例警示 - 对比展示 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             <div className="text-center mb-12">
                 <motion.div 
                   className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-400 to-orange-400 rounded-2xl mb-6"
@@ -584,21 +584,9 @@ const CaseStudiesPage: React.FC = () => {
             {/* 过度技术化主题导致的观众认知壁垒视频播放器 */}
             <DigitalAvatarPlayer 
               videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykGYst1Ih.mp4"
-              position={{ top: 460, right: '-16rem' }}
+              position={{ top: 460, right: '-8rem' }}
             />
           </motion.section>
-
-          {/* 技术保密性vs传播吸引力视频播放器 */}
-          <DigitalAvatarPlayer 
-            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykK3CEZ2T.mp4"
-            position={{ top: 100, right: '-16rem' }}
-          />
-
-          {/* 快速迭代行业中"前瞻性主题"的设计技巧视频播放器 */}
-          <DigitalAvatarPlayer 
-            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykLDmG5Eq.mp4"
-            position={{ top: 200, right: '-16rem' }}
-          />
 
           {/* 导航按钮 */}
           <motion.div 
