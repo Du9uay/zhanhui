@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Exhibition, Eye, Target, CheckCircle, AlertTriangle, BookOpen } from '../../components/Icons';
+import DigitalAvatarPlayer from '../../components/DigitalAvatarPlayer';
 
 const CaseStudiesPage: React.FC = () => {
   const containerVariants = {
@@ -393,6 +394,12 @@ const CaseStudiesPage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* 正向案例：某AR眼镜品牌视频播放器 */}
+            <DigitalAvatarPlayer 
+              videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykIwBdDtu.mp4"
+              position={{ top: 280, right: '-16rem' }}
+            />
           </motion.section>
 
           {/* 失败案例警示 - 对比展示 */}
@@ -573,7 +580,25 @@ const CaseStudiesPage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* 过度技术化主题导致的观众认知壁垒视频播放器 */}
+            <DigitalAvatarPlayer 
+              videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykGYst1Ih.mp4"
+              position={{ top: 460, right: '-16rem' }}
+            />
           </motion.section>
+
+          {/* 技术保密性vs传播吸引力视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykK3CEZ2T.mp4"
+            position={{ top: 100, right: '-16rem' }}
+          />
+
+          {/* 快速迭代行业中"前瞻性主题"的设计技巧视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykLDmG5Eq.mp4"
+            position={{ top: 200, right: '-16rem' }}
+          />
 
           {/* 导航按钮 */}
           <motion.div 

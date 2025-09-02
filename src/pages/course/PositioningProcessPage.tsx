@@ -321,6 +321,12 @@ const PositioningProcessPage: React.FC = () => {
             </div>
           </motion.section>
 
+          {/* 目标观众调研视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylcOYSWrJ.mp4"
+            position={{ top: 240, right: '-16rem' }}
+          />
+
           {/* 竞争与差异化分析 - 流程图式布局 */}
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
@@ -408,6 +414,12 @@ const PositioningProcessPage: React.FC = () => {
               </div>
             </motion.div>
           </motion.section>
+
+          {/* 展会竞争与差异化分析视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylg1eChFj.mp4"
+            position={{ top: 340, right: '-16rem' }}
+          />
 
           {/* 核心主题构思 - 创意展示 */}
           <motion.section variants={itemVariants}>
@@ -553,6 +565,12 @@ const PositioningProcessPage: React.FC = () => {
             </div>
           </motion.section>
 
+          {/* 核心主题构思视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylbdJNfFS.mp4"
+            position={{ top: 460, right: '-16rem' }}
+          />
+
           {/* 品牌定位陈述撰写 - 卡片矩阵设计 */}
           <motion.section variants={itemVariants}>
             <div className="text-center mb-12">
@@ -642,6 +660,12 @@ const PositioningProcessPage: React.FC = () => {
               </motion.div>
             </div>
           </motion.section>
+
+          {/* 品牌定位陈述撰写视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylek4v7VE.mp4"
+            position={{ top: 590, right: '-16rem' }}
+          />
 
           {/* 导航按钮 - 浮动样式 */}
           <motion.div 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Presentation, Shield, CheckCircle } from '../../components/Icons';
+import DigitalAvatarPlayer from '../../components/DigitalAvatarPlayer';
 
 const PlanningMethodsPage: React.FC = () => {
   const containerVariants = {
@@ -411,6 +412,12 @@ const PlanningMethodsPage: React.FC = () => {
             </motion.div>
           </motion.section>
 
+          {/* SWOT分析法视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykZNiQd4F.mp4"
+            position={{ top: 260, right: '-16rem' }}
+          />
+
           {/* 定位一致性检验 - 流程化工具设计 */}
           <motion.section variants={itemVariants}>
             {/* 标题区域 */}
@@ -667,6 +674,12 @@ const PlanningMethodsPage: React.FC = () => {
               </motion.div>
             </div>
           </motion.section>
+
+          {/* 定位一致性检验视频播放器 */}
+          <DigitalAvatarPlayer 
+            videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVykYiUvVmb.mp4"
+            position={{ top: 440, right: '-16rem' }}
+          />
 
           {/* 导航按钮 - 浮动设计 */}
           <motion.div 
