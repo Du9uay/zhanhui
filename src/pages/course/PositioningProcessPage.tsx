@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Strategy, Users, Target, Eye, BookOpen, CheckCircle, Zap, Search } from '../../components/Icons';
+import DigitalAvatarPlayer from '../../components/DigitalAvatarPlayer';
 
 const PositioningProcessPage: React.FC = () => {
   const containerVariants = {

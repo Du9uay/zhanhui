@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Brand, Target, Users, Award, Sparkles, CheckCircle, Compass } from '../../components/Icons';
+import DigitalAvatarPlayer from '../../components/DigitalAvatarPlayer';
 
 const ThemeBrandConceptsPage: React.FC = () => {
   const containerVariants = {
@@ -127,7 +128,7 @@ const ThemeBrandConceptsPage: React.FC = () => {
           className="space-y-16"
         >
           {/* 展会主题的定义与要素 - 分步骤卡片设计 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             {/* 章节标题 */}
             <div className="flex items-center mb-12">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-teal-400 rounded-2xl mr-6">
@@ -280,10 +281,16 @@ const ThemeBrandConceptsPage: React.FC = () => {
                 </motion.div>
               </div>
             </div>
+            
+            {/* 展会主题的定义与要素 - 数字人视频播放器 */}
+            <DigitalAvatarPlayer 
+              videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVyllYLzc3T.mp4"
+              position={{ top: 100, right: '-16rem' }}
+            />
           </motion.section>
 
           {/* 品牌定位的概念 - 交错布局设计 */}
-          <motion.section variants={itemVariants}>
+          <motion.section variants={itemVariants} className="relative">
             {/* 章节标题 */}
             <div className="flex items-center mb-12">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-blue-400 rounded-2xl mr-6">
@@ -415,6 +422,12 @@ const ThemeBrandConceptsPage: React.FC = () => {
                 </motion.div>
               </div>
             </div>
+            
+            {/* 品牌定位的概念 - 数字人视频播放器 */}
+            <DigitalAvatarPlayer 
+              videoUrl="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/web_teach/recuVylkr4DVTu.mp4"
+              position={{ top: 100, right: '-16rem' }}
+            />
           </motion.section>
 
           {/* 导航按钮 - 浮动设计 */}
