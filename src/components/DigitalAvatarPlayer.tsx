@@ -37,16 +37,27 @@ const DigitalAvatarPlayer: React.FC<DigitalAvatarPlayerProps> = ({
         setIsVideoPlaying(false);
       }
     };
+    
+    // 当组件展开时，更新全局引用
+    if (isVideoExpanded) {
+      currentExpandedPlayer = setExpandedRef.current;
+    }
+    
+    // 清理函数：组件卸载时清除全局引用
+    return () => {
+      if (currentExpandedPlayer === setExpandedRef.current) {
+        currentExpandedPlayer = null;
+      }
+    };
   }, [isVideoExpanded]);
 
   const handleTogglePlay = () => {
     if (!isVideoExpanded) {
       // 收起其他所有展开的播放器
-      if (currentExpandedPlayer && currentExpandedPlayer !== setExpandedRef.current) {
+      if (currentExpandedPlayer) {
         currentExpandedPlayer(false);
       }
-      // 设置当前播放器为展开状态
-      currentExpandedPlayer = setExpandedRef.current || null;
+      // 展开当前播放器
       setIsVideoExpanded(true);
       setTimeout(() => {
         if (videoRef.current) {
