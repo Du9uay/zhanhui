@@ -175,6 +175,7 @@ const DigitalAvatarPlayer: React.FC<DigitalAvatarPlayerProps> = ({
                       controlsList="nodownload noplaybackrate"
                       playsInline
                       preload="auto"
+                      muted={false}
                       style={{ 
                         background: 'transparent',
                         transform: 'scale(0.9)',
