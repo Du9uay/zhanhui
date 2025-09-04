@@ -1,6 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PlayCircle, X } from './Icons';
+
+// 全局状态管理 - 跟踪当前展开的视频播放器
+let currentExpandedPlayer: ((expanded: boolean) => void) | null = null;
 
 interface DigitalAvatarPlayerProps {
   videoUrl: string;
@@ -19,9 +22,31 @@ const DigitalAvatarPlayer: React.FC<DigitalAvatarPlayerProps> = ({
   const [isVideoExpanded, setIsVideoExpanded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const setExpandedRef = useRef<(expanded: boolean) => void>();
+
+  // 注册当前播放器的展开状态控制函数
+  useEffect(() => {
+    setExpandedRef.current = (expanded: boolean) => {
+      if (!expanded && isVideoExpanded) {
+        // 收起当前播放器
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+        setIsVideoExpanded(false);
+        setIsVideoPlaying(false);
+      }
+    };
+  }, [isVideoExpanded]);
 
   const handleTogglePlay = () => {
     if (!isVideoExpanded) {
+      // 收起其他所有展开的播放器
+      if (currentExpandedPlayer && currentExpandedPlayer !== setExpandedRef.current) {
+        currentExpandedPlayer(false);
+      }
+      // 设置当前播放器为展开状态
+      currentExpandedPlayer = setExpandedRef.current || null;
       setIsVideoExpanded(true);
       setTimeout(() => {
         if (videoRef.current) {
@@ -46,6 +71,10 @@ const DigitalAvatarPlayer: React.FC<DigitalAvatarPlayerProps> = ({
     }
     setIsVideoExpanded(false);
     setIsVideoPlaying(false);
+    // 清除全局展开状态引用
+    if (currentExpandedPlayer === setExpandedRef.current) {
+      currentExpandedPlayer = null;
+    }
   };
 
   const handleVideoEnd = () => {
