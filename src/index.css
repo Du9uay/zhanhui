@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+/* 文旅展会主题色彩系统变量 - 专业展会配色 */
+:root {
+  /* 背景色系 - 深蓝灰调 */
+  --bg-primary: #0F172A;           /* 深蓝灰 - 主背景 */
+  --bg-secondary: #1E293B;         /* 午夜蓝 - 次要背景 */
+  --bg-card: rgba(37, 99, 235, 0.06); /* 卡片背景 - 展会蓝半透明 */
+  --bg-card-hover: rgba(37, 99, 235, 0.1); /* 卡片悬停背景 */
+  
+  /* 主题色系 - 展会专业色 */
+  --accent-primary: #3B82F6;       /* 展会蓝 - 主要强调色 */
+  --accent-secondary: #F59E0B;     /* 品牌金 - 次要强调色 */
+  --accent-tertiary: #14B8A6;      /* 智慧青 - 第三强调色 */
+  --accent-success: #10B981;       /* 成功绿 - 成功状态 */
+  --accent-warning: #F59E0B;       /* 警告金 - 警告状态 */
+  
+  /* 文字色系 - 提高对比度 */
+  --text-primary: #ffffff;         /* 纯白 - 主要文字 */
+  --text-secondary: #e2e8f0;       /* 亮灰白 - 次要文字 */
+  --text-muted: #cbd5e1;           /* 浅灰 - 静音文字 */
+  --text-accent: #60A5FA;          /* 展会蓝文字 - 强调文字 */
+  
+  /* 边框和阴影 - 展会蓝系 */
+  --border-light: rgba(59, 130, 246, 0.15);
+  --border-medium: rgba(59, 130, 246, 0.25);
+  --border-strong: rgba(59, 130, 246, 0.4);
+  --shadow-soft: 0 4px 20px rgba(37, 99, 235, 0.15);
+  --shadow-medium: 0 8px 30px rgba(37, 99, 235, 0.2);
+  --shadow-strong: 0 12px 40px rgba(37, 99, 235, 0.3);
+  
+  /* 渐变色 - 专业展会色 */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  --gradient-secondary: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --gradient-card: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+  --gradient-accent: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* 文旅展会主题按钮样式 - 提高对比度 */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-soft);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary:focus {
+  outline: none;
+}
+
+/* 展会主题卡片样式 */
+.card-base {
+  background: var(--gradient-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 32px var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px var(--shadow-medium);
+  border-color: var(--border-medium);
+}
+
+/* 玻璃效果 - 展会风格优化 */
+.glass-effect {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(249, 168, 212, 0.15) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  border-radius: 16px;
+}
+
+/* 导航栏玻璃效果 */
+.nav-glass {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.08) 0%, 
+    rgba(236, 72, 153, 0.08) 100%);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 20px rgba(139, 92, 246, 0.1);
+}
+
+/* 深度玻璃效果 - 用于重要组件 */
+.glass-deep {
+  background: rgba(122, 158, 159, 0.08);
+  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12),
+              0 0 0 0.5px rgba(255, 255, 255, 0.15) inset;
+  border-radius: 24px;
+}
+
+/* 轻量玻璃效果 - 用于小组件 */
+.glass-light {
+  background: rgba(229, 223, 215, 0.03);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+}
+
+/*/* 交互态统一样式 */
+.focus-accent {
+  outline: none;
+}
+
+/* 移除所有按钮的边框和轮廓 */
+button:focus,
+button:focus-visible,
+.btn-primary:focus,
+.btn-primary:focus-visible,
+.btn-glass:focus,
+.btn-glass:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/*/* 确保导航栏按钮无边框 */
+nav button {
+  border: none !important;
+  outline: none !important;
+}
+
+/* 移除所有可能的焦点样式 */
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+}
+
+/* 特别针对导航栏的所有交互元素 */
+nav a:focus,
+nav button:focus,
+nav a:focus-visible,
+nav button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 文旅展会主题卡片设计 - 优化紫色背景适配 */
+.card-base {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-base::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-card);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.card-base:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+}
+
+/* 文旅展会主题渐变文字 - 更亮的颜色 */
+.text-gradient {
+  background: linear-gradient(135deg, #c4b5fd 0%, #fbcfe8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.2);
+  font-weight: 600;
+}
+
+/* 展会主题特效组件 */
+.exhibition-glow {
+  position: relative;
+}
+
+.exhibition-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* 脉动效果 */
+.pulse-exhibition {
+  animation: pulse-exhibition 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+@keyframes pulse-exhibition {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* 隐藏滚动条样式 */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* 按钮玻璃效果 */
+/* 玻璃按钮 - 展会主题风格优化 */
+.btn-glass {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.2) 0%, rgba(249, 168, 212, 0.2) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-glass:hover {
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.3) 0%, rgba(249, 168, 212, 0.3) 100%);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium),
+              0 0 0 0.5px rgba(255, 255, 255, 0.12) inset;
+}
+
+/* 输入框玻璃效果 */
+.input-glass {
+  background: rgba(122, 158, 159, 0.05);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-cashmere-100);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-glass:focus {
+  background: rgba(122, 158, 159, 0.08);
+  box-shadow: 0 0 0 2px rgba(212, 180, 131, 0.3),
+              0 0 0 0.5px rgba(255, 255, 255, 0.1) inset;
+  outline: none;
+}
+.input-glass::placeholder {
+  color: var(--text-muted);
+}
+
+/* 导航栏玻璃效果 */
+.nav-glass {
+  background: rgba(122, 158, 159, 0.02);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.05);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  /* 移动端减少模糊度以提升性能 */
+  .card-base, .glass-effect, .glass-card, .glass-deep {
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+  }
+}
+
+/* 性能优化样式 */
+/* 启用GPU加速 */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 优化过渡性能 */
+* {
+  /* 只在需要时使用will-change */
+  will-change: auto;
+}
+
+/* 简化的模糊效果 - 用于性能优化 */
+.glass-effect-light {
+  background: rgba(138, 155, 143, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+}
+
+/* 减少动画复杂度 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+  }
+}
+
+/* 优化卡片悬浮效果 */
+.card-optimized {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  will-change: auto;
+}
+.card-optimized:hover {
+  transform: translateY(-2px);
+  will-change: transform, box-shadow;
+}
+
+/* 简化的阴影效果 */
+.shadow-optimized {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.shadow-optimized-hover:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+} 

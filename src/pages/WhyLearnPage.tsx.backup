@@ -1,0 +1,646 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  TrendingUp, Building2, Target, Users, Sparkles, ChartBar, Award,
+  ArrowUp, Globe, Eye, Briefcase, Trophy, Clock, Lightbulb, Rocket
+} from 'lucide-react';
+
+const WhyLearnPage: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [currentNumber, setCurrentNumber] = useState(0);
+  const [progress, setProgress] = useState([0, 0, 0, 0, 0]);
+  const [hoveredSection, setHoveredSection] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
+
+  // 打字机效果
+  const [displayText, setDisplayText] = useState('');
+  const fullText = '为什么要学习展会行业？';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
+    return () => clearInterval(timer);
+  }, []);
+
+  // 数字动画
+  useEffect(() => {
+    const targetNumber = 15000;
+    const duration = 2000;
+    const steps = 60;
+    const increment = targetNumber / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= targetNumber) {
+        setCurrentNumber(targetNumber);
+        clearInterval(timer);
+      } else {
+        setCurrentNumber(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // 进度条动画
+  useEffect(() => {
+    const timers = progress.map((_, index) => {
+      return setTimeout(() => {
+        setProgress(prev => {
+          const newProgress = [...prev];
+          newProgress[index] = 100;
+          return newProgress;
+        });
+      }, 1000 + index * 200);
+    });
+
+    return () => timers.forEach(timer => clearTimeout(timer));
+  }, []);
+
+  // 动画变体
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const heroVariants = {
+    hidden: { y: 50, opacity: 0, filter: 'blur(10px)' },
+    visible: {
+      y: 0,
+      opacity: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 1,
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number]
+      }
+    }
+  };
+
+  const floatingAnimation = {
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut" as const
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut" as const
+    }
+  };
+
+  const shimmerAnimation = {
+    backgroundPosition: ['200% 0', '-200% 0'],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "linear" as const
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0, scale: 0.9 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 15
+      }
+    },
+    hover: {
+      y: -5,
+      scale: 1.02,
+      transition: {
+        type: "spring" as const,
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
+
+  // 3D卡片数据
+  const reasonCards = [
+    {
+      id: 1,
+      title: "行业洞察",
+      icon: TrendingUp,
+      front: "万亿级市场规模",
+      back: "中国展会行业市场规模超过15000亿，年增长率20%+，是全球增长最快的展会市场之一",
+      color: "from-blue-500 to-blue-600",
+      stats: "15000亿+"
+    },
+    {
+      id: 2,
+      title: "企业理解",
+      icon: Building2,
+      front: "产业链核心位置",
+      back: "深入了解展览公司、主办方、参展品牌的运作模式，找到个人定位与发展路径",
+      color: "from-amber-500 to-amber-600",
+      stats: "3大主体"
+    },
+    {
+      id: 3,
+      title: "学习成果",
+      icon: Target,
+      front: "60分钟速成",
+      back: "快速掌握行业知识、政策分析、市场机会和实战技能，配备AI工具提升效率",
+      color: "from-teal-500 to-teal-600",
+      stats: "5大模块"
+    }
+  ];
+
+  // 粒子背景组件
+  const ParticleBackground = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-30"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+    </div>
+  );
+
+  return (
+    <motion.div
+      ref={containerRef}
+      className="min-h-screen py-20 relative overflow-hidden"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <ParticleBackground />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Hero 标题区域 */}
+        <motion.div
+          className="text-center mb-20"
+          variants={heroVariants}
+        >
+          <motion.div
+            animate={floatingAnimation}
+            className="inline-block"
+          >
+            <Sparkles className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+          </motion.div>
+
+          <h1 className="text-6xl font-bold mb-20">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-amber-400 bg-clip-text text-transparent">
+              {displayText}
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity }}
+                className="inline-block w-1 h-12 bg-blue-400 ml-2"
+              />
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* 第一部分：为什么要关注行业 - 交互式展示 */}
+        <motion.section
+          className="mb-20"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-3xl p-8 border border-gray-700/50 relative overflow-hidden"
+            whileHover={{ scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            style={{
+              backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('${encodeURI('/images/backgrounds/为什么要学习这节课/标题：一、我们为什么要关注行业？_背景图.jpeg')}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <TrendingUp className="w-8 h-8 text-blue-400" />
+              </motion.div>
+              <h2 className="text-3xl font-bold text-white">为什么要关注行业</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* 市场规模 - 带动画数据 */}
+              <motion.div
+                className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-6 rounded-xl border border-blue-500/20 relative overflow-hidden"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(37, 99, 235, 0.15), rgba(139, 92, 246, 0.15)), url('/images/backgrounds/为什么要学习这节课/标题一_万亿级市场规模_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                whileHover={{ scale: 1.02, borderColor: "rgba(59, 130, 246, 0.5)" }}
+                onHoverStart={() => setHoveredSection(1)}
+                onHoverEnd={() => setHoveredSection(null)}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20"
+                  animate={hoveredSection === 1 ? shimmerAnimation : {}}
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+                    backgroundSize: '200% 100%',
+                  }}
+                />
+                <Sparkles className="w-6 h-6 text-yellow-400 mb-3" />
+                <h3 className="text-xl font-semibold text-white mb-2">万亿级市场规模</h3>
+                <p className="text-gray-300">
+                  中国展会行业市场规模已突破15000亿元，年增长率超过20%，是全球增长最快的展会市场之一。
+                </p>
+                <motion.div
+                  className="mt-4 flex items-center gap-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                >
+                  <ChartBar className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm text-blue-400">实时增长中...</span>
+                </motion.div>
+              </motion.div>
+
+              {/* 政策支持 - 时间轴动画 */}
+              <motion.div
+                className="bg-gradient-to-r from-green-500/10 to-teal-500/10 p-6 rounded-xl border border-green-500/20 relative"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.15)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                whileHover={{ scale: 1.02, borderColor: "rgba(16, 185, 129, 0.5)" }}
+              >
+                <Award className="w-6 h-6 text-green-400 mb-3" />
+                <h3 className="text-xl font-semibold text-white mb-2">政策红利期</h3>
+                <p className="text-gray-300">
+                  国家十四五规划重点支持，各地政府出台专项扶持政策，展会行业迎来前所未有的发展机遇。
+                </p>
+                <div className="mt-4 space-y-2">
+                  {['一带一路深化', 'RCEP协定签署', '各地展会补贴'].map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="flex items-center gap-2 text-sm text-green-400"
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 1.5 + idx * 0.2 }}
+                    >
+                      <ArrowUp className="w-3 h-3" />
+                      <span>{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* 企业机会 - 3D展示 */}
+              <motion.div
+                className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 p-6 rounded-xl border border-amber-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(245, 158, 11, 0.15), rgba(251, 146, 60, 0.15)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                whileHover={{ scale: 1.02, borderColor: "rgba(245, 158, 11, 0.5)" }}
+              >
+                <Building2 className="w-6 h-6 text-amber-400 mb-3" />
+                <h3 className="text-xl font-semibold text-white mb-2">企业突破口</h3>
+                <p className="text-gray-300">
+                  未来十年，展会行业将成为企业开拓新市场、建立品牌影响力的重要渠道。
+                </p>
+                <motion.div
+                  className="mt-4 text-2xl font-bold text-amber-400"
+                  animate={pulseAnimation}
+                >
+                  10年黄金期
+                </motion.div>
+              </motion.div>
+
+              {/* 就业前景 - 路径动画 */}
+              <motion.div
+                className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6 rounded-xl border border-purple-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15)), url('/images/backgrounds/为什么要学习这节课/标题一_对学生而言_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                whileHover={{ scale: 1.02, borderColor: "rgba(245, 158, 11, 0.5)" }}
+              >
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                  <span className="text-2xl text-amber-400">3.</span>
+                  弄清楚企业需要的技术
+                </h3>
+                <ul className="space-y-3">
+                  <li className="text-gray-300 flex items-start gap-2">
+                    <Lightbulb className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                    <span>
+                      学校教的 ≠ 企业要的：现在学校所教学的内容往往是用不上的，是与企业的招人需求挂不上钩的，
+                      企业需要的是<span className="text-amber-400 font-semibold"> 懂行业、懂甲方、懂流程</span>，
+                      能直接上手解决问题的人。
+                    </span>
+                  </li>
+                  <li className="text-gray-300 flex items-start gap-2">
+                    <Rocket className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                    <span>
+                      弄清楚企业需要什么的人，然后让自己去对标
+                    </span>
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* 学习成果展示 */}
+        <motion.section
+          className="mb-20"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-3xl p-8 border border-gray-700/50"
+            style={{
+              backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+            whileHover={{ scale: 1.01 }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <Target className="w-8 h-8 text-green-400" />
+              </motion.div>
+              <h2 className="text-3xl font-bold text-white">通过60分钟的学习，你能学到什么</h2>
+            </div>
+
+            {/* 副标题 */}
+            <motion.p
+              className="text-xl text-center mb-12 text-amber-400 font-semibold"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              不止是理论，更是可复制的实战"工具箱"
+            </motion.p>
+
+            {/* 四大核心收获 */}
+            <div className="space-y-6">
+              {/* 收获1：浓缩核心经验 */}
+              <motion.div
+                className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 p-6 rounded-2xl border border-purple-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-bold text-purple-300">1</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      浓缩十余年的核心经验
+                    </h3>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      如何清晰定位品牌、高效完成竞品分析，如何快速高效的寻找可执行的方法路径等等；不仅包括基础理论和概念的讲解，更有我个人总结的
+                      <span className="text-purple-400 font-semibold">可直接复制执行的方法</span>
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 收获2：企业工作流程 */}
+              <motion.div
+                className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-6 rounded-2xl border border-cyan-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(6, 182, 212, 0.3)"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-bold text-cyan-300">2</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      在企业中才会了解到的工作流程
+                    </h3>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      深度剖析<span className="text-cyan-400 font-semibold">中国国际摩托车博览会、包头融媒车博会</span>等大型成功项目，
+                      从<span className="text-blue-400">调研-策划-执行-运行</span>的全流程细致讲解。
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 收获3：前沿AI工具 */}
+              <motion.div
+                className="bg-gradient-to-r from-emerald-500/10 to-green-500/10 p-6 rounded-2xl border border-emerald-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(16, 185, 129, 0.2), rgba(34, 197, 94, 0.2)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/30 to-green-500/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-bold text-emerald-300">3</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      前沿的AI工具
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="px-3 py-1 bg-emerald-500/20 rounded-full text-emerald-400 text-sm">OpenAI Analysis</span>
+                        <span className="px-3 py-1 bg-green-500/20 rounded-full text-green-400 text-sm">Agent N8N</span>
+                        <span className="px-3 py-1 bg-teal-500/20 rounded-full text-teal-400 text-sm">Tripo 3D</span>
+                      </div>
+                      <p className="text-gray-300 text-lg leading-relaxed">
+                        利用<span className="text-emerald-400 font-semibold">openAI的Analysis AI</span>去进行数据处理分析；
+                        利用<span className="text-green-400 font-semibold">agent N8N</span>做一键生成会展策划案，生成会展财务报表的自动化工作流；
+                        利用三维AI工具<span className="text-teal-400 font-semibold">tripo</span>去一键生成渲染图与效果图。
+                      </p>
+                      <p className="text-gray-400 text-base mt-3 p-3 bg-gray-800/50 rounded-lg border-l-4 border-emerald-500">
+                        💡 当别人还在用传统方法一步步摸索的时候，你们已经能用AI去提升效率，用AI去生成灵感。
+                        这不仅是节省时间，更是<span className="text-emerald-400">领先同龄人的关键</span>。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 收获4：职业方向 */}
+              <motion.div
+                className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 p-6 rounded-2xl border border-amber-500/20"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(245, 158, 11, 0.2), rgba(251, 146, 60, 0.2)), url('/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpeg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(245, 158, 11, 0.3)"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500/30 to-orange-500/30 flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl font-bold text-amber-300">4</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      更加精准，清晰的职业方向
+                    </h3>
+                    <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                      会展行业的薪酬曲线远比你们想象的要快。一个普通岗位，可能三五年都看不到太大变化，但在会展行业，
+                      你们只要进入角色、掌握方法，很快就能从<span className="text-amber-400 font-bold text-xl">八千起薪</span>一路往上，
+                      通道清晰，速度飞快。
+                    </p>
+                    <motion.div
+                      className="p-4 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-lg"
+                      animate={{
+                        boxShadow: [
+                          "0 0 20px rgba(245, 158, 11, 0.2)",
+                          "0 0 30px rgba(245, 158, 11, 0.4)",
+                          "0 0 20px rgba(245, 158, 11, 0.2)"
+                        ]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <p className="text-amber-300 font-semibold">
+                        ⚡ 短短几年，你们就能积累到同龄人望尘莫及的资源和经验。
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* 薪资展示区 */}
+        <motion.section
+          className="mb-20"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-3xl p-8 border border-yellow-500/20"
+            whileHover={{ scale: 1.01 }}
+          >
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Trophy className="w-10 h-10 text-yellow-400" />
+              <h2 className="text-3xl font-bold text-white">薪资发展路径</h2>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { level: '初级', salary: '8K-12K', exp: '0-2年' },
+                { level: '中级', salary: '12K-20K', exp: '2-5年' },
+                { level: '高级', salary: '20K+', exp: '5年+' }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="text-center p-4 bg-gradient-to-b from-yellow-500/20 to-transparent rounded-lg"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 + idx * 0.2 }}
+                  whileHover={{ y: -5, scale: 1.05 }}
+                >
+                  <div className="text-sm text-gray-400 mb-1">{item.level}</div>
+                  <div className="text-2xl font-bold text-yellow-400 mb-1">{item.salary}</div>
+                  <div className="text-xs text-gray-500">{item.exp}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              className="mt-6 text-center text-gray-400"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              + 项目提成 + 年终奖金
+            </motion.div>
+          </motion.div>
+        </motion.section>
+
+        {/* CTA区域 */}
+        <motion.div
+          className="text-center"
+          variants={itemVariants}
+        >
+          <motion.button
+            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-full shadow-2xl"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            开始学习，把握机会
+          </motion.button>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default WhyLearnPage;

@@ -1,0 +1,89 @@
+:root {
+  /* 背景色系 - 继承原项目深蓝灰调 */
+  --bg-primary: #0F172A;           /* 深蓝灰 - 主背景 */
+  --bg-secondary: #1E293B;         /* 午夜蓝 - 次要背景 */
+  --bg-card: rgba(37, 99, 235, 0.06); /* 卡片背景 - 展会蓝半透明 */
+  --bg-card-hover: rgba(37, 99, 235, 0.1); /* 卡片悬停背景 */
+
+  /* 主题色系 - 展会专业色 */
+  --accent-primary: #3B82F6;       /* 展会蓝 - 主要强调色 */
+  --accent-secondary: #F59E0B;     /* 品牌金 - 次要强调色 */
+  --accent-tertiary: #14B8A6;      /* 智慧青 - 第三强调色 */
+  --accent-success: #10B981;       /* 成功绿 - 成功状态 */
+  --accent-warning: #F59E0B;       /* 警告金 - 警告状态 */
+
+  /* 文字色系 - 提高对比度 */
+  --text-primary: #ffffff;         /* 纯白 - 主要文字 */
+  --text-secondary: #e2e8f0;       /* 亮灰白 - 次要文字 */
+  --text-muted: #cbd5e1;           /* 浅灰 - 静音文字 */
+  --text-accent: #60A5FA;          /* 展会蓝文字 - 强调文字 */
+
+  /* 边框和阴影 - 展会蓝系 */
+  --border-light: rgba(59, 130, 246, 0.15);
+  --border-medium: rgba(59, 130, 246, 0.25);
+  --border-strong: rgba(59, 130, 246, 0.4);
+  --shadow-soft: 0 4px 20px rgba(37, 99, 235, 0.15);
+  --shadow-medium: 0 8px 30px rgba(37, 99, 235, 0.2);
+  --shadow-strong: 0 12px 40px rgba(37, 99, 235, 0.3);
+
+  /* 渐变色 - 专业展会色 */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  --gradient-secondary: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --gradient-card: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+  --gradient-accent: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  --gradient-purple: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(249, 168, 212, 0.15) 100%);
+
+  /* 字体系统 */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'PingFang SC', sans-serif;
+  --font-display: 'Poppins', 'PingFang SC', sans-serif;
+  --font-mono: 'JetBrains Mono', source-code-pro, monospace;
+
+  /* 圆角系统 */
+  --radius: 16px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* 特效阴影 - 发光效果 */
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(59, 130, 246, 0.4);
+  --shadow-glow-gold: 0 0 30px rgba(245, 158, 11, 0.3);
+
+  /* 间距系统 */
+  --spacing: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* 动画时长 */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --duration-slowest: 1200ms;
+
+  /* 动画缓动函数 */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  /* 模糊效果 */
+  --blur-sm: 10px;
+  --blur-md: 20px;
+  --blur-lg: 30px;
+  --blur-xl: 40px;
+
+  /* 透明度 */
+  --opacity-glass: 0.08;
+  --opacity-hover: 0.12;
+  --opacity-active: 0.15;
+}

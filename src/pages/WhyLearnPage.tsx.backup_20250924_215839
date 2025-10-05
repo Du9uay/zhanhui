@@ -1,0 +1,831 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  TrendingUp, Building2, Target, Users, Sparkles, ChartBar, Award,
+  ArrowUp, Globe, Eye, Briefcase, Trophy, Clock, Lightbulb, Rocket, Network, ChevronRight
+} from 'lucide-react';
+
+const WhyLearnPage: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [currentNumber, setCurrentNumber] = useState(0);
+  const [progress, setProgress] = useState([0, 0, 0, 0, 0]);
+  const [hoveredSection, setHoveredSection] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.6]);
+
+  // 打字机效果
+  const [displayText, setDisplayText] = useState('');
+  const fullText = '为什么要学习展会行业？';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
+    return () => clearInterval(timer);
+  }, []);
+
+  // 数字动画
+  useEffect(() => {
+    const targetNumber = 15000;
+    const duration = 2000;
+    const steps = 60;
+    const increment = targetNumber / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= targetNumber) {
+        setCurrentNumber(targetNumber);
+        clearInterval(timer);
+      } else {
+        setCurrentNumber(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // 进度条动画
+  useEffect(() => {
+    const timers = progress.map((_, index) => {
+      return setTimeout(() => {
+        setProgress(prev => {
+          const newProgress = [...prev];
+          newProgress[index] = 100;
+          return newProgress;
+        });
+      }, 1000 + index * 200);
+    });
+
+    return () => timers.forEach(timer => clearTimeout(timer));
+  }, []);
+
+  // 动画变体
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const heroVariants = {
+    hidden: { y: 50, opacity: 0, filter: 'blur(10px)' },
+    visible: {
+      y: 0,
+      opacity: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 1,
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number]
+      }
+    }
+  };
+
+  const floatingAnimation = {
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut" as const
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      ease: "easeInOut" as const
+    }
+  };
+
+  const shimmerAnimation = {
+    backgroundPosition: ['200% 0', '-200% 0'],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "linear" as const
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0, scale: 0.9 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 15
+      }
+    },
+    hover: {
+      y: -5,
+      scale: 1.02,
+      transition: {
+        type: "spring" as const,
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
+
+  // 3D卡片数据
+  const reasonCards = [
+    {
+      id: 1,
+      title: "行业洞察",
+      icon: TrendingUp,
+      front: "万亿级市场规模",
+      back: "中国展会行业市场规模超过15000亿，年增长率20%+，是全球增长最快的展会市场之一",
+      color: "from-blue-500 to-blue-600",
+      stats: "15000亿+"
+    },
+    {
+      id: 2,
+      title: "企业理解",
+      icon: Building2,
+      front: "产业链核心位置",
+      back: "深入了解展览公司、主办方、参展品牌的运作模式，找到个人定位与发展路径",
+      color: "from-amber-500 to-amber-600",
+      stats: "3大主体"
+    },
+    {
+      id: 3,
+      title: "学习成果",
+      icon: Target,
+      front: "60分钟速成",
+      back: "快速掌握行业知识、政策分析、市场机会和实战技能，配备AI工具提升效率",
+      color: "from-teal-500 to-teal-600",
+      stats: "5大模块"
+    }
+  ];
+
+  // 粒子背景组件
+  const ParticleBackground = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-30"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+    </div>
+  );
+
+  return (
+    <motion.div
+      ref={containerRef}
+      className="min-h-screen py-20 relative overflow-hidden"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <ParticleBackground />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Hero 标题区域 */}
+        <motion.div
+          className="text-center mb-20"
+          variants={heroVariants}
+        >
+          <motion.div
+            animate={floatingAnimation}
+            className="inline-block"
+          >
+            <Sparkles className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+          </motion.div>
+
+          <h1 className="text-6xl font-bold mb-20">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-amber-400 bg-clip-text text-transparent">
+              {displayText}
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.5, repeat: Infinity }}
+                className="inline-block w-1 h-12 bg-blue-400 ml-2"
+              />
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* 第一部分：为什么要关注行业 - glass卡片设计 */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* 章节标题 */}
+          <motion.div 
+            className="flex items-center mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl mr-6">
+              <TrendingUp className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold text-white">为什么要关注行业？</h2>
+              <p className="text-blue-200 mt-2">时代风口已至，是必须抓住的机会</p>
+            </div>
+          </motion.div>
+
+          {/* 主内容区 - 大卡片 */}
+          <motion.div 
+            className="glass-card p-12 relative overflow-hidden mb-8"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题：一、我们为什么要关注行业？_背景图.jpeg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* 装饰性背景元素 */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/10 rounded-full blur-2xl"></div>
+            
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12">
+              {/* 左侧 - 主要内容 */}
+              <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h3 className="text-3xl font-bold text-white mb-6">
+                    <span className="text-blue-400">会展行业</span>正迎来黄金发展期
+                  </h3>
+                  <p className="text-xl text-white/90 leading-relaxed mb-8">
+                    随着全球经济一体化进程加速，会展行业成为推动国际贸易和文化交流的重要平台。
+                    现在正是进入这个行业的最佳时机。
+                  </p>
+                </motion.div>
+
+                {/* 关键指标 */}
+                <div className="grid grid-cols-2 gap-4">
+                  <motion.div 
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-3xl font-bold text-blue-400">15000亿+</div>
+                    <div className="text-white/70 text-sm mt-1">市场规模</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="text-3xl font-bold text-green-400">20%+</div>
+                    <div className="text-white/70 text-sm mt-1">年增长率</div>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* 右侧 - 四个要点 */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* 市场规模 */}
+                <motion.div 
+                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 p-6 border border-blue-400/30"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题一_万亿级市场规模_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.5)" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <TrendingUp className="w-8 h-8 text-blue-400 mb-3" />
+                  <h4 className="text-lg font-bold text-white mb-2">万亿级市场</h4>
+                  <p className="text-white/80 text-sm">
+                    中国展会行业市场规模已突破15000亿元
+                  </p>
+                </motion.div>
+
+                {/* 政策红利 */}
+                <motion.div 
+                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 p-6 border border-green-400/30"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题一_政策红利期_背景图.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(16, 185, 129, 0.5)" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Building2 className="w-8 h-8 text-green-400 mb-3" />
+                  <h4 className="text-lg font-bold text-white mb-2">政策红利期</h4>
+                  <p className="text-white/80 text-sm">
+                    一带一路、RCEP等政策大力支持
+                  </p>
+                </motion.div>
+
+                {/* 企业机会 */}
+                <motion.div 
+                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 p-6 border border-amber-400/30"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题一_对企业而言_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(245, 158, 11, 0.5)" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Target className="w-8 h-8 text-amber-400 mb-3" />
+                  <h4 className="text-lg font-bold text-white mb-2">企业突破口</h4>
+                  <p className="text-white/80 text-sm">
+                    未来十年重要的市场机遇
+                  </p>
+                </motion.div>
+
+                {/* 就业机会 */}
+                <motion.div 
+                  className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-600/20 p-6 border border-purple-400/30"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题一_对学生而言_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(168, 85, 247, 0.5)" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Users className="w-8 h-8 text-purple-400 mb-3" />
+                  <h4 className="text-lg font-bold text-white mb-2">优质就业</h4>
+                  <p className="text-white/80 text-sm">
+                    平均薪资8K+，项目提成丰厚
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.section>
+
+        {/* 第二部分：为什么要弄清楚企业 - 垂直时间线设计 */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-20"
+        >
+          {/* 章节标题 */}
+          <motion.div 
+            className="flex items-center mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-400 to-teal-400 rounded-2xl mr-6">
+              <Briefcase className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold text-white">为什么要弄清楚企业？</h2>
+              <p className="text-cyan-200 mt-2">理解企业架构，就是找到个人的成长捷径</p>
+            </div>
+          </motion.div>
+
+          {/* 主内容区 - 时间线布局 */}
+          <div className="relative pl-12">
+            {/* 时间线 */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-purple-400 to-green-400 rounded-full"></div>
+            
+            <div className="space-y-12">
+              {/* 第一项：弄清楚上下游 */}
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {/* 时间点 */}
+                <div className="absolute -left-4 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl">
+                  <Network className="w-8 h-8 text-white" />
+                </div>
+                
+                {/* 内容卡片 */}
+                <div 
+                  className="ml-20 glass-card p-8 relative overflow-hidden"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题二_弄清楚上下游_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl"></div>
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-cyan-400 mb-4">弄清楚上下游</h3>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                        <span className="text-cyan-400 font-semibold text-sm">上游</span>
+                        <p className="text-white/80 text-sm mt-1">整合场馆、搭建、物流等资源</p>
+                      </div>
+                      <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                        <span className="text-cyan-400 font-semibold text-sm">中游</span>
+                        <p className="text-white/80 text-sm mt-1">懂主办、承办方的运作逻辑</p>
+                      </div>
+                      <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                        <span className="text-cyan-400 font-semibold text-sm">下游</span>
+                        <p className="text-white/80 text-sm mt-1">直接面对参展商和观众</p>
+                      </div>
+                    </div>
+                    <p className="text-white/70 mt-4">
+                      企业位处产业链的环节不同，企业类型和岗位重点也不同。上下游不同，掌握的技术不同，要明晰个人定位，选择最适合自己的路。
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 第二项：弄清楚企业的岗位 */}
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {/* 时间点 */}
+                <div className="absolute -left-4 w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl">
+                  <Briefcase className="w-8 h-8 text-white" />
+                </div>
+                
+                {/* 内容卡片 */}
+                <div 
+                  className="ml-20 glass-card p-8 relative overflow-hidden"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题二_弄清楚企业的岗位_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-purple-400 mb-4">弄清楚企业的岗位</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-4">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <span className="text-white/90">前期策划：会展策划师、业务顾问、设计师</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <span className="text-white/90">中期执行：会展执行、招商、招展</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <span className="text-white/90">后期运营：品牌推广、展会运营</span>
+                      </div>
+                    </div>
+                    <div className="mt-6 p-4 bg-purple-500/10 rounded-xl">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white/70">行业平均薪资</span>
+                        <span className="text-3xl font-bold text-purple-400">8K+</span>
+                      </div>
+                      <p className="text-white/60 text-sm mt-2">技术/经验要求 > 学历要求，且有项目提成</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 第三项：弄清楚企业需要的技术 */}
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {/* 时间点 */}
+                <div className="absolute -left-4 w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-xl">
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </div>
+                
+                {/* 内容卡片 */}
+                <div 
+                  className="ml-20 glass-card p-8 relative overflow-hidden"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题二_弄清楚企业需要的技术_背景图.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold text-green-400 mb-4">弄清楚企业需要的技术</h3>
+                    <div className="bg-gradient-to-r from-red-500/10 to-orange-500/10 p-4 rounded-xl mb-4 border-l-4 border-orange-400">
+                      <p className="text-white/90">
+                        <span className="text-orange-400 font-bold">学校教的 ≠ 企业要的</span>
+                      </p>
+                      <p className="text-white/70 text-sm mt-2">
+                        学校内容往往与企业招人需求脱节
+                      </p>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-500/10 to-teal-500/10 p-4 rounded-xl border-l-4 border-green-400">
+                      <p className="text-white/90">
+                        企业需要的是：<span className="text-green-400 font-bold">懂行业、懂甲方、懂流程</span>
+                      </p>
+                      <p className="text-white/70 text-sm mt-2">
+                        能直接上手解决问题的人，弄清楚企业需要什么，让自己去对标
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* 第三部分：学习成果展示 - 对比卡片布局 */}
+        <motion.section
+          className="mb-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* 章节标题 */}
+          <motion.div 
+            className="flex items-center mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-orange-400 rounded-2xl mr-6">
+              <Sparkles className="w-8 h-8 text-white" />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold text-white">通过60分钟的学习，你能学到什么？</h2>
+              <p className="text-amber-200 mt-2">不止是理论，更是可复制的实战"工具箱"</p>
+            </div>
+          </motion.div>
+
+          {/* 主内容区 - 网格布局 */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* 核心经验卡片 */}
+            <motion.div 
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500/10 to-pink-600/10 p-8 border border-purple-400/30"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题三_浓缩十余年的核心经验_背景图.jpeg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-12 bg-purple-400 rounded-full mr-4"></div>
+                  <h3 className="text-xl font-bold text-purple-400">浓缩十余年的核心经验</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <span className="text-purple-400 font-semibold text-sm">品牌定位</span>
+                    <p className="text-white/80 text-sm mt-1">如何清晰定位品牌，建立独特市场地位</p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <span className="text-purple-400 font-semibold text-sm">竞品分析</span>
+                    <p className="text-white/80 text-sm mt-1">高效完成竞品分析，找到差异化优势</p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <span className="text-purple-400 font-semibold text-sm">执行路径</span>
+                    <p className="text-white/80 text-sm mt-1">快速找到可执行的方法路径</p>
+                  </div>
+                </div>
+                
+                <div className="mt-6 p-3 bg-purple-500/10 rounded-lg">
+                  <span className="text-purple-400 font-semibold text-xs">特色：</span>
+                  <span className="text-white/70 text-xs ml-1">不仅包括基础理论，更有可直接复制执行的方法</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 工作流程卡片 */}
+            <motion.div 
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-500/10 to-blue-600/10 p-8 border border-cyan-400/30"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题三_在企业中才会了解到的工作流程_背景图.jpeg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-12 bg-cyan-400 rounded-full mr-4"></div>
+                  <h3 className="text-xl font-bold text-cyan-400">企业工作流程</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <span className="text-cyan-400 font-semibold text-sm">成功案例</span>
+                    <p className="text-white/80 text-sm mt-1">深度剖析中国国际摩托车博览会等大型项目</p>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                    <span className="text-cyan-400 font-semibold text-sm">全流程解析</span>
+                    <p className="text-white/80 text-sm mt-1">从调研-策划-执行-运营的全流程细致讲解</p>
+                  </div>
+                </div>
+                
+                {/* 流程示意 */}
+                <div className="mt-6 flex items-center justify-between bg-cyan-500/10 rounded-xl p-4">
+                  <span className="text-cyan-400 text-sm">调研</span>
+                  <ChevronRight className="w-4 h-4 text-cyan-400/50" />
+                  <span className="text-cyan-400 text-sm">策划</span>
+                  <ChevronRight className="w-4 h-4 text-cyan-400/50" />
+                  <span className="text-cyan-400 text-sm">执行</span>
+                  <ChevronRight className="w-4 h-4 text-cyan-400/50" />
+                  <span className="text-cyan-400 text-sm">运营</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* AI工具卡片 */}
+            <motion.div 
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500/10 to-yellow-600/10 p-8 border border-orange-400/30"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题三_前沿的AI工具_背景图.jpeg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-12 bg-orange-400 rounded-full mr-4"></div>
+                  <h3 className="text-xl font-bold text-orange-400">前沿的AI工具</h3>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 bg-white/5 rounded-lg p-3">
+                    <Rocket className="w-5 h-5 text-orange-400" />
+                    <div>
+                      <span className="text-white/90 font-semibold text-sm">OpenAI Analysis</span>
+                      <p className="text-white/60 text-xs">数据处理与分析</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 bg-white/5 rounded-lg p-3">
+                    <Rocket className="w-5 h-5 text-orange-400" />
+                    <div>
+                      <span className="text-white/90 font-semibold text-sm">Agent N8N</span>
+                      <p className="text-white/60 text-xs">一键生成策划案与财务报表</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 bg-white/5 rounded-lg p-3">
+                    <Rocket className="w-5 h-5 text-orange-400" />
+                    <div>
+                      <span className="text-white/90 font-semibold text-sm">Tripo 3D</span>
+                      <p className="text-white/60 text-xs">一键生成渲染图与效果图</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-4 p-3 bg-orange-500/10 rounded-lg">
+                  <p className="text-orange-400 text-xs font-semibold">领先同龄人的关键技能</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 职业方向卡片 */}
+            <motion.div 
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500/10 to-emerald-600/10 p-8 border border-green-400/30"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('${process.env.PUBLIC_URL}/images/backgrounds/为什么要学习这节课/标题三_更加精准，清晰的职业方向_背景图.jpeg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/20 rounded-full blur-2xl"></div>
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className="w-3 h-12 bg-green-400 rounded-full mr-4"></div>
+                  <h3 className="text-xl font-bold text-green-400">精准职业方向</h3>
+                </div>
+                
+                <div className="mb-6">
+                  <p className="text-white/80">会展行业的薪酬曲线远比你想象的要快。掌握方法后，能从8千起薪快速成长。</p>
+                </div>
+                
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="bg-white/5 rounded-xl p-3 text-center">
+                    <div className="text-2xl font-bold text-green-400">8K</div>
+                    <div className="text-xs text-white/60">起薪</div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-3 text-center">
+                    <div className="text-2xl font-bold text-green-400">3-5年</div>
+                    <div className="text-xs text-white/60">晋升周期</div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-3 text-center">
+                    <div className="text-2xl font-bold text-green-400">15K+</div>
+                    <div className="text-xs text-white/60">资深薪资</div>
+                  </div>
+                </div>
+                
+                <div className="mt-4 p-3 bg-green-500/10 rounded-lg">
+                  <p className="text-green-400 text-xs font-semibold">短短几年，积累同龄人望尘莫及的资源和经验</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* 薪资展示区 */}
+        <motion.section
+          className="mb-20"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-3xl p-8 border border-yellow-500/20"
+            whileHover={{ scale: 1.01 }}
+          >
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Trophy className="w-10 h-10 text-yellow-400" />
+              <h2 className="text-3xl font-bold text-white">薪资发展路径</h2>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { level: '初级', salary: '8K-12K', exp: '0-2年' },
+                { level: '中级', salary: '12K-20K', exp: '2-5年' },
+                { level: '高级', salary: '20K+', exp: '5年+' }
+              ].map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="text-center p-4 bg-gradient-to-b from-yellow-500/20 to-transparent rounded-lg"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 + idx * 0.2 }}
+                  whileHover={{ y: -5, scale: 1.05 }}
+                >
+                  <div className="text-sm text-gray-400 mb-1">{item.level}</div>
+                  <div className="text-2xl font-bold text-yellow-400 mb-1">{item.salary}</div>
+                  <div className="text-xs text-gray-500">{item.exp}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              className="mt-6 text-center text-gray-400"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              + 项目提成 + 年终奖金
+            </motion.div>
+          </motion.div>
+        </motion.section>
+
+        {/* CTA区域 */}
+        <motion.div
+          className="text-center"
+          variants={itemVariants}
+        >
+          <motion.button
+            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-full shadow-2xl"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            开始学习，把握机会
+          </motion.button>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default WhyLearnPage;
