@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__read_file",
+      "mcp__serena__activate_project",
+      "mcp__serena__check_onboarding_performed",
+      "Bash(npm start)",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__replace_regex",
+      "mcp__serena__list_dir",
+      "mcp__serena__create_text_file",
+      "Bash(rm:*)",
+      "Bash(npm run build:*)",
+      "mcp__serena__replace_symbol_body",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npx gh-pages:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(git tag:*)",
+      "Bash(git branch:*)",
+      "Bash(PORT=3001 npm start)",
+      "mcp__serena__execute_shell_command",
+      "Bash(cp:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Read(/Users/apple/Documents/cursor/Web课件/机械智能制造/复合能力培养/education_web_PLC/src/pages/course/**)",
+      "Bash(grep:*)",
+      "Bash(lsof:*)",
+      "Bash(PORT=3002 npm start)",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__find_symbol",
+      "Bash(npx http-server:*)",
+      "Bash(npx serve:*)",
+      "Bash(git init:*)",
+      "Bash(git fetch:*)"
+    ],
+    "deny": [],
+    "additionalDirectories": [
+      "/Users/apple/Downloads"
+    ]
+  }
+}
