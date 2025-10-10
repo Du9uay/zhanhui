@@ -601,11 +601,11 @@ const CaseStudiesPage: React.FC = () => {
               <span className="text-white">上一章：展会主题策划与品牌定位方法</span>
             </Link>
             
-            <Link 
-              to="/course-summary"
+            <Link
+              to="/course-test"
               className="group flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-amber-500 px-6 py-4 rounded-2xl text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <span>进入课程总结</span>
+              <span>进入课堂测试</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
